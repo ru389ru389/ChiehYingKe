@@ -25,7 +25,7 @@ zh:
   all_topics: 全部主題
   no_match: 沒有符合條件的著作。
   all_years: 全部
-  map_hint: 點選地圖上的圓點查看該地的研討會；圓點越大代表場次越多。
+  map_hint: 點選圓點查看該地的研討會；圓點越大代表場次越多，台灣的地點標在右側小地圖。
   talks: 場
   online: 線上會議（未標示於地圖）
   related_confs: 相關研討會發表
@@ -58,7 +58,7 @@ en:
   all_topics: All topics
   no_match: No publications match the selected filters.
   all_years: All
-  map_hint: Click a circle to see the conferences held there; larger circles mean more talks.
+  map_hint: Click a circle for details; larger circles mean more talks. Venues in Taiwan are shown in the inset.
   talks: talk(s)
   online: Online meeting (not shown on map)
   related_confs: Related conference presentations

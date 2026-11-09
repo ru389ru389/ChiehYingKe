@@ -1,7 +1,9 @@
 # 研討會地點座標（研討會資料裡用 place: 代碼 對應）
+# 台灣範圍內（經度 119.2–122.2、緯度 21.7–25.5）的地點會畫在右側台灣小地圖，世界地圖上合併成一個「台灣」點。
 taipei:      { zh: 台北, en: Taipei, lat: 25.04, lng: 121.56 }
 newtaipei:   { zh: 新北, en: New Taipei, lat: 25.01, lng: 121.46 }
-taoyuan:     { zh: 桃園, en: Taoyuan, lat: 24.97, lng: 121.19 }
+taoyuan:     { zh: 桃園, en: Taoyuan, lat: 24.99, lng: 121.31 }
+ncu:         { zh: 中央大學, en: National Central University, lat: 24.97, lng: 121.19 }
 tainan:      { zh: 台南, en: Tainan, lat: 22.99, lng: 120.21 }
 kaohsiung:   { zh: 高雄, en: Kaohsiung, lat: 22.63, lng: 120.30 }
 hualien:     { zh: 花蓮, en: Hualien, lat: 23.99, lng: 121.60 }
@@ -14,7 +16,7 @@ minneapolis: { zh: 明尼亞波利斯, en: Minneapolis, lat: 44.98, lng: -93.27 
 nara:        { zh: 奈良, en: Nara, lat: 34.69, lng: 135.80 }
 ede:         { zh: 埃德, en: Ede, lat: 52.04, lng: 5.66 }
 hawaii:      { zh: 夏威夷, en: Hawaii, lat: 21.31, lng: -157.86 }
-canada:      { zh: 加拿大, en: Canada, lat: 46.12, lng: -74.60 }
+montgabriel: { zh: Mont-Gabriel（蒙特婁）, en: Mont-Gabriel (Montréal), lat: 45.94, lng: -74.08 }
 chicago:     { zh: 芝加哥, en: Chicago, lat: 41.88, lng: -87.63 }
 singapore:   { zh: 新加坡, en: Singapore, lat: 1.35, lng: 103.82 }
 seattle:     { zh: 西雅圖, en: Seattle, lat: 47.61, lng: -122.33 }

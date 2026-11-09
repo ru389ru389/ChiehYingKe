@@ -1,5 +1,4 @@
 {% include lang-setup.html %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <section class="section">
   <div class="container">
     <div class="year-tabs" role="tablist">
@@ -10,7 +9,14 @@
     </div>
 
     <div class="map-card">
-      <div id="confmap" aria-label="{% if lang == 'en' %}World map of conference locations{% else %}研討會地點世界地圖{% endif %}"></div>
+      <div class="map-wrap">
+        <div class="map-world">{% include world-map.svg.html %}</div>
+        <div class="map-taiwan">
+          <p class="inset-title">{% if lang == 'en' %}Taiwan{% else %}台灣{% endif %}</p>
+          {% include taiwan-map.svg.html %}
+        </div>
+        <div class="map-pop" hidden></div>
+      </div>
       <div class="map-legend">
         <span><i class="dot intl"></i>{{ L.intl }}</span>
         <span><i class="dot local"></i>{{ L.local }}</span>
@@ -44,53 +50,60 @@ var CONF_ITEMS = [
 ];
 var CONF_TALKS = {{ L.talks | jsonify }};
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
-  var hasMap = typeof L !== 'undefined' && document.getElementById('confmap');
-  var map, layer;
-  if (hasMap) {
-    map = L.map('confmap', { worldCopyJump: true, scrollWheelZoom: false, minZoom: 1, maxZoom: 10 });
-    var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/' + (dark ? 'dark_all' : 'light_all') + '/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd', maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-    }).addTo(map);
-    layer = L.layerGroup().addTo(map);
-    map.on('click', function () { map.scrollWheelZoom.enable(); });
-  } else {
-    var m = document.getElementById('confmap'); if (m) m.closest('.map-card').hidden = true;
-  }
-
+  var NS = 'http://www.w3.org/2000/svg';
+  var world = document.querySelector('.wmap'), tw = document.querySelector('.tmap');
+  var pop = document.querySelector('.map-pop'), wrap = document.querySelector('.map-wrap');
+  var TWB = { lng0: 119.2, lng1: 122.2, lat0: 25.5, lat1: 21.7 };
+  var TW_LABEL = {% if lang == 'en' %}"Taiwan"{% else %}"台灣"{% endif %};
+  function inTW(pl) { return pl.lng >= TWB.lng0 && pl.lng <= TWB.lng1 && pl.lat >= TWB.lat1 && pl.lat <= TWB.lat0; }
+  function wxy(pl) { var W = +world.dataset.w, top = +world.dataset.top; return [(pl.lng + 180) / 360 * W, (top - pl.lat) / 360 * W]; }
+  function txy(pl) { var d = tw.dataset; return [(pl.lng - d.lng0) * d.k * d.c, (d.lat0 - pl.lat) * d.k]; }
   function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
+  function pin(svg, xy, list, label, scale) {
+    var intl = list.some(function (x) { return x.intl; });
+    var c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', xy[0]); c.setAttribute('cy', xy[1]);
+    var k = svg.viewBox.baseVal.width / (svg.getBoundingClientRect().width || svg.viewBox.baseVal.width);
+    c.setAttribute('r', (Math.min(5 + 2 * (list.length - 1), 13) * k * scale).toFixed(1));
+    c.setAttribute('class', 'pin ' + (intl ? 'intl' : 'local'));
+    var t = document.createElementNS(NS, 'title'); t.textContent = label + ' · ' + list.length; c.appendChild(t);
+    c.addEventListener('click', function (e) { e.stopPropagation(); showPop(e, label, list); });
+    svg.querySelector('.pins').appendChild(c);
+  }
+  function showPop(e, label, list) {
+    var yr = document.querySelector('.year-tabs button.on').dataset.y;
+    pop.innerHTML = '<button class="pop-x" aria-label="close">×</button><strong>' + esc(label) + '</strong> · ' + list.length + ' ' + esc(CONF_TALKS) +
+      '<ul>' + list.map(function (x) { return '<li>' + (yr === 'all' ? '<b>' + x.year + '</b> ' : '') + esc(x.venue.replace(/<[^>]+>/g, '')) + (x.placeName && x.placeName !== label ? '（' + esc(x.placeName) + '）' : '') + '</li>'; }).join('') + '</ul>';
+    pop.hidden = false;
+    var r = wrap.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    var pw = pop.offsetWidth, ph = pop.offsetHeight;
+    pop.style.left = Math.max(8, Math.min(x - pw / 2, r.width - pw - 8)) + 'px';
+    pop.style.top = (y - ph - 14 > 0 ? y - ph - 14 : y + 14) + 'px';
+    pop.querySelector('.pop-x').onclick = function () { pop.hidden = true; };
+  }
+  document.addEventListener('click', function (e) { if (!pop.contains(e.target)) pop.hidden = true; });
+
   function drawMap(year) {
-    if (!hasMap) return;
-    layer.clearLayers();
-    var groups = {};
+    pop.hidden = true;
+    [world, tw].forEach(function (s) { s.querySelector('.pins').innerHTML = ''; });
+    var groups = {}, twAll = [];
     CONF_ITEMS.forEach(function (it) {
       if (year !== 'all' && it.year !== year) return;
+      var pl = CONF_PLACES[it.place]; if (!pl) return;
+      it.placeName = pl.name;
       (groups[it.place] = groups[it.place] || []).push(it);
+      if (inTW(pl)) twAll.push(it);
     });
-    var pts = [];
     Object.keys(groups).forEach(function (k) {
-      var pl = CONF_PLACES[k], list = groups[k];
-      if (!pl) return;
-      var intl = list.some(function (x) { return x.intl; });
-      var mk = L.circleMarker([pl.lat, pl.lng], {
-        radius: Math.min(7 + 3 * (list.length - 1), 22),
-        color: '#fff', weight: 2, fillOpacity: .9,
-        fillColor: intl ? '#e0573a' : '#1f6fb2'
-      });
-      var html = '<strong>' + esc(pl.name) + '</strong> · ' + list.length + ' ' + esc(CONF_TALKS) + '<ul>' +
-        list.map(function (x) { return '<li>' + (year === 'all' ? '<b>' + x.year + '</b> ' : '') + esc(x.venue.replace(/<[^>]+>/g, '')) + '</li>'; }).join('') + '</ul>';
-      mk.bindPopup(html, { maxWidth: 300 });
-      mk.bindTooltip(pl.name + ' · ' + list.length, { direction: 'top', offset: [0, -6] });
-      mk.addTo(layer); pts.push([pl.lat, pl.lng]);
+      var pl = CONF_PLACES[k];
+      if (inTW(pl)) pin(tw, txy(pl), groups[k], pl.name, 1);
+      else pin(world, wxy(pl), groups[k], pl.name, 1);
     });
-    if (year === 'all' || pts.length === 0) { map.setView([28, 10], 1); }
-    else if (pts.length === 1) { map.setView(pts[0], 6); }
-    else { map.fitBounds(pts, { padding: [40, 40], maxZoom: 6 }); }
+    if (twAll.length) pin(world, wxy({ lat: 23.7, lng: 121 }), twAll, TW_LABEL, 1);
+    document.querySelector('.map-taiwan').classList.toggle('empty', twAll.length === 0);
   }
 
   function show(year) {
@@ -102,6 +115,6 @@ var CONF_TALKS = {{ L.talks | jsonify }};
     b.addEventListener('click', function () { show(b.dataset.y); });
   });
   show(document.querySelector('.year-tabs button.on').dataset.y);
-  if (hasMap) setTimeout(function () { map.invalidateSize(); }, 200);
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { drawMap(document.querySelector('.year-tabs button.on').dataset.y); }, 150); });
 })();
 </script>

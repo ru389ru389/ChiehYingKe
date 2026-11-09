@@ -76,7 +76,8 @@
 
 - year: 2021
   items:
-    - text: "<b>Ke, C.-Y.</b>: The Importance of Assimilating High-Resolution Thermodynamic Fields with Radar Observations in the EnKF System. <em>2nd KNU CARE Conference on Radar Meteorology: NCU–KNU International Workshop</em>."
+    - text: "<b>Ke, C.-Y.</b>: The Importance of Assimilating High-Resolution Thermodynamic Fields with Radar Observations in the EnKF System. <em>2nd KNU CARE Conference on Radar Meteorology: NCU–KNU International Workshop</em>, National Central University, Taoyuan, Taiwan."
+      place: ncu
       intl: true
 
 - year: 2020
@@ -104,8 +105,8 @@
     - text: "Chung, K.-S., <b>C.-Y. Ke</b>, and C.-H. Chen: Impact of Using Multi-Microphysics Ensemble Prediction System in Radar Data Assimilation at the Convective Scale. <em>AOGS 15th Annual Meeting</em>, Hawaii, USA."
       place: hawaii
       intl: true
-    - text: "Chung, K.-S., and <b>C.-Y. Ke</b>: Impact of Assimilating Temperature and Humidity Information with Radar Data at Convective Scale: An Observing System Simulation Experiment. <em>The 8th EnKF Data Assimilation Workshop</em>, Canada."
-      place: canada
+    - text: "Chung, K.-S., and <b>C.-Y. Ke</b>: Impact of Assimilating Temperature and Humidity Information with Radar Data at Convective Scale: An Observing System Simulation Experiment. <em>The 8th EnKF Data Assimilation Workshop</em>, Mont-Gabriel, Québec, Canada."
+      place: montgabriel
       intl: true
 
 - year: 2017
