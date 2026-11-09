@@ -1,0 +1,56 @@
+# 著作列表。新增一筆：複製一個 "- year:" 區塊並修改。
+# type: journal（期刊）/ preprint（預印本）/ book（專書章節）/ thesis（學位論文）
+# authors 中本人姓名用 <b>…</b> 標示；doi 只填 DOI 號碼，可省略。
+
+- type: journal
+  year: 2026
+  title: Evaluating the Impact of Temperature Data Assimilation on the Microphysical Evolution of Convective Precipitation Systems
+  authors: <b>Ke, C.-Y.</b>, and K.-S. Chung
+  venue: <em>Monthly Weather Review</em>（審查中）
+
+- type: journal
+  year: 2025
+  title: Radar Wind Retrieval, Ensemble Simulations, and Cluster Analysis of a Heavy Rainfall Event over Northern Taiwan during 1–2 June 2017
+  authors: <b>Ke, C.-Y.</b>, P.-J. Tsai, K.-S. Chung, Y.-L. Chen, and Y.-C. Liou
+  venue: <em>Monthly Weather Review</em>, 153, 617–635.
+
+- type: journal
+  year: 2022
+  title: "Impact of Assimilating Radar Data with 3D Thermodynamic Fields in an Ensemble Kalman Filter: Proof of Concept and Feasibility"
+  authors: <b>Ke, C.-Y.</b>, K.-S. Chung, Y.-C. Liou, and C.-C. Tsai
+  venue: <em>Monthly Weather Review</em>, 150, 3251–3273.
+  doi: 10.1175/MWR-D-22-0128.1
+
+- type: journal
+  year: 2022
+  title: "Assimilating Retrieved Water Vapor and Radar Data from NCAR S-PolKa: Performance and Validation Using Real Cases"
+  authors: Do, P., K.-S. Chung, P. Lin, <b>C.-Y. Ke</b>, and S. M. Ellis
+  venue: <em>Monthly Weather Review</em>, 150, 1177–1199.
+  doi: 10.1175/MWR-D-21-0292.1
+
+- type: journal
+  year: 2019
+  title: "Analysis of Heavy Rainfall and Barrier-Jet Evolution during Mei-Yu Season Using Multiple Doppler Radar Retrievals: A Case Study on 11 June 2012"
+  authors: <b>Ke, C.-Y.</b>, K.-S. Chung, T.-C. Chen Wang, and Y.-C. Liou
+  venue: "<em>Tellus A: Dynamic Meteorology and Oceanography</em>, 71, 1–21."
+  doi: 10.1080/16000870.2019.1571369
+
+- type: preprint
+  year: 預印本
+  title: Statistical Characteristics of Convective Cells and Centroid-Based Probability Nowcasts by Tracking Error
+  authors: Chung, K.-S., T.-J. Lee, <b>C.-Y. Ke</b>, Y.-H. Tsou, S.-G. Chen, P.-Y. Lin, and T.-S. Huang
+  venue: <em>SSRN</em>.
+  doi: 10.2139/ssrn.4736353
+
+- type: book
+  year: 2023
+  title: Evaluating the Assimilation of Observable and Retrievable Weather Radar Information for Quantitative Precipitation Forecasts
+  authors: Chung, K.-S., C.-C. Tsai, <b>C.-Y. Ke</b>, P.-N. Do, and Y.-C. Liou
+  venue: "In: Park, S. K. (ed.) <em>Numerical Weather Prediction: East Asian Perspectives</em>. Springer Atmospheric Sciences."
+  doi: 10.1007/978-3-031-40567-9_9
+
+- type: thesis
+  year: 2014
+  title: 2012年梅雨期間6月11日台灣北部豪大雨個案雷達資料分析
+  authors: <b>柯靜吟</b>
+  venue: 國立中央大學 碩士論文

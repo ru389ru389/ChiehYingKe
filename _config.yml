@@ -1,0 +1,20 @@
+title: Chieh-Ying Ke
+title_zh: 柯緁盈
+description: 國立中央大學大氣科學系雷達實驗室博士後研究員，專長為氣象雷達觀測、風場反演、雷達資料同化與數值模式模擬。
+url: https://ru389ru389.github.io
+baseurl: /ChiehYingKe
+email: cyke812@g.ncu.edu.tw
+github: ru389ru389
+
+markdown: kramdown
+exclude:
+  - README.md
+
+# 導覽列：依序顯示；color 為各分頁主題色（定義於 assets/style.css）
+nav:
+  - { title: 首頁, en: Home, url: /, color: navy }
+  - { title: 關於我, en: About, url: /about/, color: blue }
+  - { title: 研究專長, en: Research, url: /research/, color: teal }
+  - { title: 著作發表, en: Publications, url: /publications/, color: amber }
+  - { title: 研討會, en: Conferences, url: /conferences/, color: coral }
+  - { title: 外場觀測, en: Field Campaigns, url: /campaigns/, color: green }

@@ -1,0 +1,98 @@
+# 研討會發表，依年份分組。新增：在對應年份的 items 加一行；新年份就複製一整個區塊放最上面。
+# intl: true 代表國際會議（會顯示「國際」標籤）；award 可填得獎名稱。
+
+- year: 2026
+  items:
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Impact of Temperature Data Assimilation on Microphysical Process Representation in Convective Precipitation. <em>ICMCS-XVII</em>, Penghu, Taiwan."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, C.-L. Ho, and K.-S. Chung: Contrasting Dynamical and Thermodynamical Controls of Heavy Rainfall in Northern and Southern Taiwan Using ESA and Clustering. <em>第三十五屆南區統計研討會暨 2026 中華機率統計學會年會</em>，台南。"
+    - text: "<b>柯緁盈</b>、鍾高陞：不同溫度與雷達資料同化於強降水事件雲微物理之影響。<em>全國大氣科學大專生與研究生研討會暨博士後研究員成果發表會</em>，台北。"
+
+- year: 2025
+  items:
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Evaluating the Impact of Temperature Data Assimilation on Hydrometeor Evolution in Convective Precipitation System. <em>41st Conference on Radar Meteorology</em>, Toronto, Canada."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, Y.-J. Liou, and K.-S. Chung: Modeling Vertical Atmospheric Couplings with WRF and Evaluating Satellite Observations. <em>The First Asia-Arctic Conference of Asia-Arctic Network for Research and Education</em>, Hokkaido, Japan."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, S.-K. Yang, and K.-S. Chung: Dynamics of the Intense Coastal Rainfall Event during TAHOPE-IOP3: Radar Wind Retrieval, Ensemble Sensitivity Analysis, and k-Means Clustering. <em>第三十四屆南區統計研討會暨 2025 中華機率統計學會年會</em>，新北。"
+    - text: "<b>柯緁盈</b>、鍾高陞：溫度同化對強降雨系統中降雨粒子演變的影響評估。<em>2025 台灣地球科學聯合學術研討會（TGA）</em>，台北。"
+    - text: "鍾高陞、王聖翔、梁禹喬、<b>柯緁盈</b>、劉鈺均、林士然：極地區域大氣垂直耦合之觀測儀器與模擬分析建置。<em>2025 台灣地球科學聯合學術研討會（TGA）</em>，台北。"
+
+- year: 2024
+  items:
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Impact of Assimilating Different Temperature Variables on Microphysical Processes in Convective and Stratiform Precipitation: A Case Study of Frontal System in TAHOPE IOP 3. <em>ERAD 2024</em>, Rome, Italy."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, K.-S. Chung, Y.-C. Liou, and C.-C. Tsai: Assimilating Pseudo-Temperature and Water Vapor with Radar Observations in the Context of Ensemble Kalman Filter: A Case Study of Frontal System. <em>The First NCU-RIKEN Joint Workshop on Data Assimilation for Severe Weather Prediction</em>, Taoyuan, Taiwan."
+      intl: true
+    - text: "Chung, K.-S., P.-J. Tsai, <b>C.-Y. Ke</b>, Y.-C. Liou, and Y.-L. Chen: Analysis of Extreme Heavy Rainfall Event on 1–2 June 2017 over Northern Taiwan Area by Ensemble Simulations. <em>AOGS 21st Annual Meeting</em>, Pyeongchang, Korea."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, P.-J. Tsai, K.-S. Chung, and S.-K. Yang: Exploring the Relationship Between Meteorological Variables through Unsupervised Clustering and Sensitivity Analysis in Weather Model Ensemble Forecasts. <em>第三十三屆南區統計研討會暨 2024 中華機率統計學會年會</em>，高雄。"
+    - text: "鍾高陞、<b>柯緁盈</b>、劉鈺均：國際趨勢到國內人工增雨技術探討與效益評估。<em>2024 年台灣人工增雨技術應用與未來展望研討會</em>，桃園。"
+
+- year: 2023
+  items:
+    - text: "<b>Ke, C.-Y.</b>, K.-S. Chung, Y.-C. Liou, and C.-C. Tsai: Impact of Assimilating Retrieval Thermodynamic Fields and Radar Data. <em>40th AMS Conference on Radar Meteorology</em>, Minneapolis, MN, USA."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, Y.-C. Liou, and K.-S. Chung: Impact of Assimilating Retrieval Thermodynamic Fields and Radar Data by the WRF-LETKF Assimilation System. <em>2023 大氣科學學門成果發表會</em>，桃園。"
+    - text: "<b>Ke, C.-Y.</b>, P.-J. Tsai, and K.-S. Chung: Unsupervised Machine Learning for Analyzing Ensemble Simulations of Extreme Heavy Rainfall Event in Northern Taiwan. <em>第三十二屆南區統計研討會暨 2023 中華機率統計學會年會</em>，花蓮。"
+
+- year: 2022
+  items:
+    - text: "Do, P.-N., K.-S. Chung, P.-L. Lin, <b>C.-Y. Ke</b>, and S. M. Ellis: Assimilating Retrieved Water Vapor and Radar Data from NCAR S-PolKa: Performance and Validation Using Real Cases. <em>AOGS 19th Annual Meeting</em>, Virtual."
+      intl: true
+    - text: "Lee, T.-J., K.-S. Chung, <b>C.-Y. Ke</b>, T.-S. Huang, and S.-G. Chen: A Storm-Based Probability Nowcasting Established by Tracking Error Statistics. <em>AOGS 19th Annual Meeting</em>, Virtual."
+      intl: true
+    - text: "Tsai, P.-J., K.-S. Chung, Y.-C. Liou, and <b>C.-Y. Ke</b>: Extreme Heavy Rainfall Event on 01–02 June 2017: Ensemble Simulations and Cluster Analysis. <em>AOGS 19th Annual Meeting</em>, Virtual."
+      intl: true
+
+- year: 2021
+  items:
+    - text: "<b>Ke, C.-Y.</b>: The Importance of Assimilating High-Resolution Thermodynamic Fields with Radar Observations in the EnKF System. <em>2nd KNU CARE Conference on Radar Meteorology: NCU–KNU International Workshop</em>."
+      intl: true
+
+- year: 2020
+  items:
+    - text: "鍾高陞、<b>柯靜吟</b>、鄒益豪、李采蓉、林秉煜、黃椿喜、陳新淦、劉宇其、賈愛玫：臺灣地區對流胞特性分析與路徑預報技術開發。<em>109 年天氣分析與預報研討會</em>，台北。"
+
+- year: 2019
+  items:
+    - text: "<b>Ke, C.-Y.</b>, K.-S. Chung, Y.-C. Liou, and S.-C. Yang: Assimilating Radar Data with Retrieved Thermodynamic Fields: A Case Study of Frontal System on June 11 2012. <em>39th International Conference on Radar Meteorology</em>, Nara, Japan."
+      intl: true
+    - text: "<b>柯靜吟</b>、鍾高陞：觀測系統模擬實驗在對流尺度下使用系集卡爾曼濾波器系統同化熱動力變數的影響。<em>2019 臺灣地球科學聯合學術研討會</em>，台北。"
+      award: 博士班 特優
+
+- year: 2018
+  items:
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: The Importance of Assimilating Thermodynamic Fields with Radar Observations in Convective-Scale Weather Systems. <em>ERAD 2018</em>, Ede, Netherlands."
+      intl: true
+    - text: "Chung, K.-S., <b>C.-Y. Ke</b>, and C.-H. Chen: Impact of Using Multi-Microphysics Ensemble Prediction System in Radar Data Assimilation at the Convective Scale. <em>AOGS 15th Annual Meeting</em>, Hawaii, USA."
+      intl: true
+    - text: "Chung, K.-S., and <b>C.-Y. Ke</b>: Impact of Assimilating Temperature and Humidity Information with Radar Data at Convective Scale: An Observing System Simulation Experiment. <em>The 8th EnKF Data Assimilation Workshop</em>, Canada."
+      intl: true
+
+- year: 2017
+  items:
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Sensitivity Tests of Assimilating Thermodynamic Variables with Radar Observations in the Ensemble Kalman Filter System. <em>38th Conference on Radar Meteorology</em>, Chicago, IL, USA."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Sensitivity Tests of Assimilating Additional State Variables with Radar Observations. <em>ICMCS-XII</em>, Taipei, Taiwan."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>, and K.-S. Chung: Impact of Assimilating Additional Thermodynamic Variables with Radar Observations in the EnKF System at Convective Scale. <em>2017 APEC Typhoon Symposium (APTS)</em>, Taipei, Taiwan."
+      intl: true
+    - text: "<b>Ke, C.-Y.</b>: The Mechanisms of the Evolution of a Mei-Yu Front with a MCS Revealed from Multiple Doppler Radar Observation in the Torrential Rain. <em>2017 Taipei Severe Weather and Extreme Precipitation Workshop</em>, Taipei, Taiwan."
+      intl: true
+    - text: "Chen, L.-H., <b>C.-Y. Ke</b>, and K.-S. Chung: Examination of Forecast Errors at Mesoscale and Convective Scale in the Context of the Ensemble Scheme: A Case Study of the Mei-Yu Front over Taiwan Area. <em>AOGS 14th Annual Meeting</em>, Singapore."
+      intl: true
+    - text: "Chung, K.-S., <b>C.-Y. Ke</b>, and L.-H. Chen: Examination of Forecast Errors and the Impact of Assimilating High-Density Observations at Convective Scale in Context of the Ensemble Kalman Filter. <em>97th AMS Annual Meeting</em>, Seattle, USA."
+      intl: true
+    - text: "<b>柯靜吟</b>：觀測系統模擬實驗在對流尺度下使用系集卡爾曼濾波器系統同化熱動力變數的影響。<em>2017 兩岸青年大氣科學學術研討會</em>，桃園。"
+
+- year: 2016
+  items:
+    - text: "<b>Ke, C.-Y.</b>, K.-S. Chung, T.-C. C. Wang, and Y.-C. Liou: The Mechanisms of the Evolution of a Mei-Yu Frontal Rain Band Revealed from Multiple Doppler Radar Observation in the Torrential Rain Event. <em>2nd US–Taiwan Extreme Precipitation Workshop</em>, Hawaii, USA."
+      intl: true
+    - text: "鍾高陞、陳立昕、<b>柯靜吟</b>：對流尺度預報誤差特性分析與資料同化影響評估。<em>105 年天氣分析與預報研討會</em>，台北。"
+
+- year: 2015
+  items:
+    - text: "<b>Ke, C.-Y.</b>, T.-C. C. Wang, and Y.-C. Liou: The Mechanisms of the Evolution of a Mei-Yu Frontal Rain Band Revealed from Multiple Doppler/Polarimetric Radar Observation in the Torrential Rain Event on June 11, 2012. <em>37th Conference on Radar Meteorology</em>, Norman, OK, USA."
+      intl: true

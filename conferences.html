@@ -1,0 +1,41 @@
+---
+layout: default
+title: 研討會
+en: Conferences
+color: coral
+permalink: /conferences/
+lead: 曾於 AMS 雷達氣象研討會（2015 諾曼、2017 芝加哥、2019 奈良、2023 明尼亞波利斯、2025 多倫多）、ERAD、AOGS 等國際會議發表。
+---
+<section class="section">
+  <div class="container">
+    <div class="year-tabs" role="tablist">
+      {% for y in site.data.conferences %}
+      <button class="{% if forloop.first %}on{% endif %}" data-y="{{ y.year }}">{{ y.year }}<small>{{ y.items.size }}</small></button>
+      {% endfor %}
+    </div>
+
+    {% for y in site.data.conferences %}
+    <div class="year-panel" data-y="{{ y.year }}"{% unless forloop.first %} hidden{% endunless %}>
+      <h2>{{ y.year }}</h2>
+      <ul class="conf-list">
+        {% for it in y.items %}
+        <li>
+          {% if it.intl %}<span class="kind k-intl">國際</span>{% else %}<span class="kind k-local">國內</span>{% endif %}
+          {% if it.award %}<span class="kind k-award">🏆 {{ it.award }}</span>{% endif %}
+          <p>{{ it.text }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.year-tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    document.querySelectorAll('.year-tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    document.querySelectorAll('.year-panel').forEach(function (p) { p.hidden = p.dataset.y !== b.dataset.y; });
+  });
+});
+</script>

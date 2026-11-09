@@ -1,0 +1,23 @@
+---
+layout: default
+title: 外場觀測
+en: Field Campaigns
+color: green
+permalink: /campaigns/
+lead: 以移動式氣象雷達 TEAM-R 參與外場觀測，負責場址勘查、系統架設、雷達操作與資料分析。
+---
+<section class="section">
+  <div class="container">
+    <ol class="camp-list">
+      {% for c in site.data.campaigns %}
+      <li>
+        <span class="camp-when">{{ c.when }}</span>
+        <div class="camp-card">
+          <h3>{{ c.title }}{% if c.tag %} <span class="kind k-intl">{{ c.tag }}</span>{% endif %}</h3>
+          <p>{{ c.where }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
