@@ -359,7 +359,7 @@ p { margin: 0 0 1em; }
 .legend-item.on { background: var(--t); color: #fff; border-color: var(--t); }
 @media (hover: hover) { .legend-item:hover { background: var(--t); color: #fff; border-color: var(--t); } }
 .map-box { position: relative; }
-.map-stack { display: grid; grid-template-columns: 1.65fr 1fr; gap: 10px; align-items: start; }
+.map-stack { display: grid; grid-template-columns: 2.34fr 1fr; gap: 10px; align-items: start; } /* 韓國圖高度約為台灣的 1/3 */
 .map-box.korea { border-radius: 10px; }
 .map-box.korea .map-label { top: 4px; left: 6px; font-size: 11px; }
 .map-label { position: absolute; top: 8px; left: 10px; margin: 0; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .05em; z-index: 1; }

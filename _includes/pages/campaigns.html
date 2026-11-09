@@ -137,7 +137,7 @@ var CTYPES = {
     var boxes = stack.querySelectorAll('.map-box');
     if (window.innerWidth > 900) { boxes.forEach(function (b) { b.style.width = ''; }); return; }
     var vbT = maps.tw.viewBox.baseVal, vbK = maps.kr.viewBox.baseVal;
-    var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 0.48; // 韓國圖高度為台灣圖的 48%
+    var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 1 / 3; // 韓國圖高度為台灣圖的三分之一
     var cs = getComputedStyle(panel);
     var used = document.querySelector('.camp-legend').offsetHeight + document.querySelector('.map-note').offsetHeight + 14 +
                parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
