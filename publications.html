@@ -1,45 +1,10 @@
 ---
 layout: default
-title: 著作發表
-en: Publications
+lang: zh
 color: amber
-permalink: /publications/
+title: 著作發表
+eyebrow: Publications
 lead: 期刊論文、專書章節與學位論文。粗體為本人。
+permalink: /publications/
 ---
-{% assign groups = "journal|期刊論文,preprint|預印本,book|專書章節,thesis|學位論文" | split: "," %}
-<section class="section">
-  <div class="container">
-    <div class="filter" role="tablist">
-      <button class="on" data-f="all">全部</button>
-      {% for g in groups %}{% assign kv = g | split: "|" %}
-      <button data-f="{{ kv[0] }}">{{ kv[1] }}</button>
-      {% endfor %}
-    </div>
-
-    <ol class="pub-list">
-      {% for p in site.data.publications %}
-      <li class="pub" data-type="{{ p.type }}">
-        <span class="pub-year">{{ p.year }}</span>
-        <div>
-          {% for g in groups %}{% assign kv = g | split: "|" %}{% if kv[0] == p.type %}<span class="kind k-{{ p.type }}">{{ kv[1] }}</span>{% endif %}{% endfor %}
-          <p class="pub-title">{{ p.title }}</p>
-          <p class="pub-authors">{{ p.authors }}</p>
-          <p class="pub-venue">{{ p.venue }}{% if p.doi %} <a class="doi" href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}</p>
-        </div>
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-<script>
-document.querySelectorAll('.filter button').forEach(function (b) {
-  b.addEventListener('click', function () {
-    document.querySelectorAll('.filter button').forEach(function (x) { x.classList.toggle('on', x === b); });
-    var f = b.dataset.f;
-    document.querySelectorAll('.pub').forEach(function (li) {
-      li.hidden = !(f === 'all' || li.dataset.type === f);
-    });
-  });
-});
-</script>
+{% include pages/publications.html %}

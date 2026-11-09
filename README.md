@@ -8,20 +8,22 @@ Live site: https://ru389ru389.github.io/ChiehYingKe/
 ## 網站架構
 
 使用 GitHub Pages 內建的 Jekyll 自動產生，不需另外安裝或設定 Actions。
+中文版在根目錄，英文版在 `/en/`，右上角按鈕一鍵切換。
 
 | 檔案 | 內容 |
 | --- | --- |
-| `index.html` | 首頁（照片、數據、各分頁入口按鈕） |
-| `about.html` | 關於我：簡介、學歷、技術工具 |
-| `research.html` | 研究專長 |
-| `publications.html` | 著作發表（資料來自 `_data/publications.yml`） |
-| `conferences.html` | 研討會（資料來自 `_data/conferences.yml`） |
-| `campaigns.html` | 外場觀測（資料來自 `_data/campaigns.yml`） |
-| `_layouts/default.html` | 共用的導覽列、頁首與頁尾 |
+| `_includes/pages/*.html` | 各頁內容（中英文共用一份，以 `lang` 切換） |
+| `*.html`、`en/*.html` | 中文／英文頁面入口（只有標題與網址設定） |
+| `_data/publications.yml` | 著作；`topics` 決定列在哪個研究專長下 |
+| `_data/conferences.yml` | 研討會；`text_en` 為英文版 |
+| `_data/campaigns.yml` | 野外觀測 |
+| `_data/research.yml` | 研究專長（中英文） |
+| `_data/i18n.yml` | 介面文字（中英文） |
+| `_layouts/default.html` | 共用的導覽列、語言切換、頁首與頁尾 |
 | `_config.yml` | 網站名稱、Email、導覽列項目與顏色 |
 | `assets/style.css` | 樣式與配色 |
 
 ## 如何更新
 
-新增論文、研討會或觀測：只要編輯 `_data/` 裡對應的 `.yml` 檔，複製一筆修改即可，
-推上 `main` 後約 1–2 分鐘網站自動更新。
+新增論文、研討會或觀測：編輯 `_data/` 裡對應的 `.yml` 檔，複製一筆修改即可；
+有中文內容時，加上 `_en` 欄位提供英文版。推上 `main` 後約 1–2 分鐘網站自動更新。

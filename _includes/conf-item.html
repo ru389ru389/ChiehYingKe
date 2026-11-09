@@ -1,0 +1,6 @@
+{%- assign it = include.it -%}{%- assign L = include.L -%}
+<li>
+  {% if it.intl %}<span class="kind k-intl">{{ L.intl }}</span>{% else %}<span class="kind k-local">{{ L.local }}</span>{% endif %}
+  {% if it.award %}<span class="kind k-award">🏆 {% if include.lang == 'en' and it.award_en %}{{ it.award_en }}{% else %}{{ it.award }}{% endif %}</span>{% endif %}
+  <p>{% if include.lang == 'en' and it.text_en %}{{ it.text_en }}{% else %}{{ it.text }}{% endif %}</p>
+</li>

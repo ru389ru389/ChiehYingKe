@@ -1,43 +1,55 @@
+{%- assign lang = page.lang | default: 'zh' -%}
+{%- assign L = site.data.i18n[lang] -%}
+{%- if lang == 'en' -%}{%- assign prefix = '/en' -%}{%- assign other_url = page.url | remove_first: '/en' -%}{%- assign desc = site.description_en -%}
+{%- else -%}{%- assign prefix = '' -%}{%- assign other_url = '/en' | append: page.url -%}{%- assign desc = site.description -%}{%- endif -%}
+{%- assign home_url = prefix | append: '/' -%}
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="{{ L.html_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title and page.url != "/" %}{{ page.title }}｜{% endif %}{{ site.title }} {{ site.title_zh }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta property="og:title" content="{{ site.title }}｜Radar Meteorology">
-  <meta property="og:description" content="{{ site.description }}">
+  <title>{% if page.url != home_url %}{{ page.title }} | {% endif %}{{ site.title }}{% if lang == 'zh' %} {{ site.title_zh }}{% endif %}</title>
+  <meta name="description" content="{{ desc }}">
+  <meta property="og:title" content="{{ site.title }} | Radar Meteorology">
+  <meta property="og:description" content="{{ desc }}">
   <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/profile.jpg">
+  <link rel="alternate" hreflang="{% if lang == 'en' %}zh-Hant{% else %}en{% endif %}" href="{{ site.url }}{{ other_url | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2313a89e' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%2313a89e' stroke-width='2'/%3E%3Cpath d='M16 16 L27 9' stroke='%230b2545' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
-<body class="theme-{{ page.color | default: 'navy' }}">
+<body class="theme-{{ page.color | default: 'navy' }} lang-{{ lang }}">
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
+    <a class="brand" href="{{ home_url | relative_url }}">
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="7"/><path d="M16 16 L26 10"/></svg>
       Chieh-Ying Ke
     </a>
-    <button class="menu-btn" aria-label="開啟選單" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="menu">
-      {% for item in site.nav offset: 1 %}
-      <a href="{{ item.url | relative_url }}" class="c-{{ item.color }}{% if page.url == item.url %} active{% endif %}">{{ item.title }}</a>
-      {% endfor %}
-    </nav>
+    <div class="nav-right">
+      <nav class="menu">
+        {% for item in site.nav offset: 1 %}{% assign u = prefix | append: item.url %}
+        <a href="{{ u | relative_url }}" class="c-{{ item.color }}{% if page.url == u %} active{% endif %}">{% if lang == 'en' %}{{ item.title_en }}{% else %}{{ item.title }}{% endif %}</a>
+        {% endfor %}
+      </nav>
+      <a class="lang-switch" href="{{ other_url | relative_url }}" title="{{ L.switch_title }}" lang="{% if lang == 'en' %}zh-Hant{% else %}en{% endif %}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg>
+        {{ L.switch_label }}
+      </a>
+      <button class="menu-btn" aria-label="{{ L.menu }}" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
-  {% if page.url != "/" %}
+  {% if page.url != home_url %}
   <section class="page-head">
     <div class="container">
-      <p class="eyebrow">{{ page.en }}</p>
+      <p class="eyebrow">{{ page.eyebrow }}</p>
       <h1>{{ page.title }}</h1>
       {% if page.lead %}<p class="page-lead">{{ page.lead }}</p>{% endif %}
     </div>
@@ -47,13 +59,13 @@
 
   {{ content }}
 
-  {% if page.url != "/" %}
+  {% if page.url != home_url %}
   <section class="pager">
     <div class="container">
-      <p class="pager-title">其他頁面</p>
+      <p class="pager-title">{{ L.other_pages }}</p>
       <div class="pager-links">
-        {% for item in site.nav %}{% unless page.url == item.url %}
-        <a href="{{ item.url | relative_url }}" class="chip c-{{ item.color }}">{{ item.title }}</a>
+        {% for item in site.nav %}{% assign u = prefix | append: item.url %}{% unless page.url == u %}
+        <a href="{{ u | relative_url }}" class="chip c-{{ item.color }}">{% if lang == 'en' %}{{ item.title_en }}{% else %}{{ item.title }}{% endif %}</a>
         {% endunless %}{% endfor %}
       </div>
     </div>
@@ -64,12 +76,13 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div>
-      <strong>Chieh-Ying Ke 柯緁盈</strong><br>
-      Radar Laboratory, Department of Atmospheric Sciences, National Central University
+      <strong>{{ L.name_line }}</strong><br>
+      {{ L.unit }}
     </div>
     <div class="footer-links">
       <a href="mailto:{{ site.email }}">{{ site.email }}</a>
       <a href="https://github.com/{{ site.github }}">GitHub</a>
+      <a href="{{ other_url | relative_url }}">{{ L.switch_label }}</a>
     </div>
   </div>
 </footer>

@@ -1,0 +1,39 @@
+{% include lang-setup.html %}
+<section class="section">
+  <div class="container">
+    <div class="research-list">
+      {% for r in site.data.research %}
+      <article class="research c-{{ r.color }}" id="{{ r.topic }}">
+        <div class="r-icon"><svg viewBox="0 0 24 24">{{ r.icon }}</svg></div>
+        <div class="r-body">
+          <p class="r-num">0{{ forloop.index }}</p>
+          <h2>{% if lang == 'en' %}{{ r.title_en }}{% else %}{{ r.title }}{% endif %}</h2>
+          <p>{% if lang == 'en' %}{{ r.desc_en }}{% else %}{{ r.desc }}{% endif %}</p>
+          {% if r.campaigns %}<a class="more-link" href="{{ prefix | append: '/campaigns/' | relative_url }}">{{ L.see_campaigns }}</a>{% endif %}
+
+          {% assign related = site.data.publications | where_exp: "p", "p.topics contains r.topic" %}
+          {% if related.size > 0 %}
+          <details class="related" open>
+            <summary>{{ L.related_pubs }} <small>{{ related.size }}</small></summary>
+            <ol class="pub-list compact">
+              {% for p in related %}{% include pub-item.html p=p L=L lang=lang %}{% endfor %}
+            </ol>
+          </details>
+          {% else %}
+          {% assign rconfs = "" | split: "" %}
+          {% for y in site.data.conferences %}{% for it in y.items %}{% if it.topics contains r.topic %}{% assign rconfs = rconfs | push: it %}{% endif %}{% endfor %}{% endfor %}
+          {% if rconfs.size > 0 %}
+          <details class="related" open>
+            <summary>{{ L.related_confs }} <small>{{ rconfs.size }}</small></summary>
+            <ul class="conf-list compact">
+              {% for it in rconfs %}{% include conf-item.html it=it L=L lang=lang %}{% endfor %}
+            </ul>
+          </details>
+          {% endif %}
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

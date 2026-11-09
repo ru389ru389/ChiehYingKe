@@ -1,0 +1,16 @@
+{% include lang-setup.html %}
+<section class="section">
+  <div class="container">
+    <ol class="camp-list">
+      {% for c in site.data.campaigns %}
+      <li>
+        <span class="camp-when">{{ c.when }}</span>
+        <div class="camp-card">
+          <h3>{% if lang == 'en' %}{{ c.title_en }}{% else %}{{ c.title }}{% endif %}{% if c.intl %} <span class="kind k-intl">{{ L.intl }}</span>{% endif %}</h3>
+          <p>{% if lang == 'en' %}{{ c.where_en }}{% else %}{{ c.where }}{% endif %}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

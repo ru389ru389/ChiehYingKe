@@ -1,30 +1,44 @@
-# 外場觀測紀錄（由新到舊）
+# 野外觀測紀錄（由新到舊）。_en 為英文版文字。
 
 - when: 2017.01 — 02
   title: ICE-POP 韓國平昌冬季奧運觀測實驗
+  title_en: ICE-POP Field Campaign for the PyeongChang Winter Olympics
   where: 韓國 平昌
-  tag: 國際
+  where_en: PyeongChang, Korea
+  intl: true
 
 - when: 2016.09
   title: 午後熱對流觀測（TASSE）
+  title_en: Afternoon Thunderstorm Observation (TASSE)
   where: 新北 五股
+  where_en: Wugu, New Taipei
 
 - when: 2016.05 — 06
   title: 西南氣流聯合觀測實驗
+  title_en: Southwest Monsoon Joint Observation Experiment
   where: 高屏溪大樹堤防｜台灣颱風洪水研究中心
+  where_en: Dashu levee, Kaoping River | Taiwan Typhoon and Flood Research Institute
 
 - when: 2015.08 — 10
   title: 五分山雷達站支援觀測
+  title_en: Wufenshan Radar Station Support Observations
   where: 五分山雷達站｜中央氣象局
+  where_en: Wufenshan Radar Station | Central Weather Bureau
 
 - when: 2015.07 — 08
   title: 颱風觀測：昌鴻、蘇迪勒颱風
+  title_en: "Typhoon Observations: Chan-hom and Soudelor"
   where: 苗栗獅潭、中央大學
+  where_en: Shitan, Miaoli; National Central University
 
 - when: 2015.05 — 06
   title: 梅雨鋒面降雨觀測、西南氣流聯合觀測實驗
+  title_en: Mei-Yu Frontal Rainfall Observation; Southwest Monsoon Joint Observation Experiment
   where: 苗栗銅鑼、高屏溪伏流水模場
+  where_en: Tongluo, Miaoli; Kaoping River
 
 - when: 2014
   title: 午後熱對流觀測、雷達測試與教育訓練
+  title_en: Afternoon Thunderstorm Observation; Radar Testing and Training
   where: 台北美堤河濱公園、中央大學
+  where_en: Meiti Riverside Park, Taipei; National Central University

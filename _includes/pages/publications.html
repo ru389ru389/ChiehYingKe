@@ -1,0 +1,22 @@
+{% include lang-setup.html %}
+{% assign types = "journal,preprint,book,thesis" | split: "," %}
+<section class="section">
+  <div class="container">
+    <div class="filter" role="tablist">
+      <button class="on" data-f="all">{{ L.all }}</button>
+      {% for t in types %}<button data-f="{{ t }}">{{ L[t] }}</button>{% endfor %}
+    </div>
+    <ol class="pub-list">
+      {% for p in site.data.publications %}{% include pub-item.html p=p L=L lang=lang %}{% endfor %}
+    </ol>
+  </div>
+</section>
+<script>
+document.querySelectorAll('.filter button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    document.querySelectorAll('.filter button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    var f = b.dataset.f;
+    document.querySelectorAll('.pub').forEach(function (li) { li.hidden = !(f === 'all' || li.dataset.type === f); });
+  });
+});
+</script>

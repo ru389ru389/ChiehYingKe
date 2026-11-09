@@ -1,74 +1,9 @@
 ---
 layout: default
-title: 首頁
+lang: zh
 color: navy
+title: 首頁
+eyebrow: Home
+permalink: /
 ---
-{% assign n_journal = site.data.publications | where: "type", "journal" | size %}
-{% assign n_conf = 0 %}{% for y in site.data.conferences %}{% assign n_conf = n_conf | plus: y.items.size %}{% endfor %}
-{% assign n_camp = site.data.campaigns | size %}
-
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <p class="eyebrow">Radar Meteorology · Data Assimilation</p>
-      <h1>Chieh-Ying Ke <span>柯緁盈</span></h1>
-      <p class="role">Postdoctoral Research Fellow, Radar Laboratory<br>
-        Department of Atmospheric Sciences, National Central University</p>
-      <p class="lead">
-        專注於<strong>氣象雷達</strong>觀測與<strong>數值天氣預報模式</strong>。
-        從外場雷達觀測、多都卜勒風場反演，到系集卡爾曼濾波（EnKF）雷達資料同化，
-        研究劇烈天氣的動力與熱力結構，並提升對流尺度降水預報。
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="mailto:{{ site.email }}">Email 聯絡</a>
-        <a class="btn ghost" href="{{ '/publications/' | relative_url }}">著作發表</a>
-      </div>
-    </div>
-    <figure class="portrait">
-      <img src="{{ '/images/profile.jpg' | relative_url }}" width="800" height="1000"
-           alt="Chieh-Ying Ke 於挪威斯瓦巴群島北極熊警示標誌前" fetchpriority="high">
-      <figcaption>Svalbard, Norway · 北極斯瓦巴群島</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="stats">
-  <div class="container stats-inner">
-    <div class="stat c-amber"><b>{{ n_journal }}</b><span>期刊論文</span></div>
-    <div class="stat c-coral"><b>{{ n_conf }}</b><span>研討會發表</span></div>
-    <div class="stat c-green"><b>{{ n_camp }}</b><span>外場觀測</span></div>
-    <div class="stat c-teal"><b>10+</b><span>年雷達研究</span></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="center">探索網站</h2>
-    <div class="tiles">
-      <a class="tile c-blue" href="{{ '/about/' | relative_url }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span>
-        <h3>關於我</h3><p>個人簡介、學歷、技術工具與聯絡方式</p><span class="go">進入 →</span>
-      </a>
-      <a class="tile c-teal" href="{{ '/research/' | relative_url }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 L19 6"/></svg></span>
-        <h3>研究專長</h3><p>雷達觀測、風場反演、資料同化、系集模擬</p><span class="go">進入 →</span>
-      </a>
-      <a class="tile c-amber" href="{{ '/publications/' | relative_url }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></span>
-        <h3>著作發表</h3><p>期刊論文、專書章節與學位論文</p><span class="go">進入 →</span>
-      </a>
-      <a class="tile c-coral" href="{{ '/conferences/' | relative_url }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/></svg></span>
-        <h3>研討會</h3><p>AMS 雷達氣象、ERAD、AOGS 等國內外發表</p><span class="go">進入 →</span>
-      </a>
-      <a class="tile c-green" href="{{ '/campaigns/' | relative_url }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M3 20l6-11 4 7 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></span>
-        <h3>外場觀測</h3><p>TEAM-R 移動式雷達、ICE-POP、西南氣流實驗</p><span class="go">進入 →</span>
-      </a>
-      <a class="tile c-navy" href="mailto:{{ site.email }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-        <h3>聯絡我</h3><p>{{ site.email }}</p><span class="go">寄信 →</span>
-      </a>
-    </div>
-  </div>
-</section>
+{% include pages/home.html %}

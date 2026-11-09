@@ -1,0 +1,55 @@
+# 介面文字（中 / 英）
+zh:
+  html_lang: zh-Hant
+  switch_label: EN
+  switch_title: Switch to English
+  menu: 開啟選單
+  other_pages: 其他頁面
+  enter: 進入 →
+  send: 寄信 →
+  email_btn: Email 聯絡
+  pubs_btn: 著作發表
+  explore: 探索網站
+  stat_journal: 期刊論文
+  stat_conf: 研討會發表
+  stat_camp: 野外觀測
+  stat_years: 年雷達研究
+  all: 全部
+  journal: 期刊論文
+  preprint: 預印本
+  book: 專書章節
+  thesis: 學位論文
+  intl: 國際
+  local: 國內
+  related_pubs: 相關著作
+  related_confs: 相關研討會發表
+  see_campaigns: 查看野外觀測紀錄 →
+  unit: 國立中央大學 大氣科學系 雷達實驗室
+  name_line: Chieh-Ying Ke 柯緁盈
+en:
+  html_lang: en
+  switch_label: 中文
+  switch_title: 切換至中文
+  menu: Open menu
+  other_pages: More pages
+  enter: Open →
+  send: Email →
+  email_btn: Email me
+  pubs_btn: Publications
+  explore: Explore
+  stat_journal: Journal papers
+  stat_conf: Conference talks
+  stat_camp: Field campaigns
+  stat_years: Years in radar research
+  all: All
+  journal: Journal
+  preprint: Preprint
+  book: Book chapter
+  thesis: Thesis
+  intl: International
+  local: Domestic
+  related_pubs: Related publications
+  related_confs: Related conference presentations
+  see_campaigns: See field campaign records →
+  unit: Radar Laboratory, Department of Atmospheric Sciences, National Central University
+  name_line: Chieh-Ying Ke

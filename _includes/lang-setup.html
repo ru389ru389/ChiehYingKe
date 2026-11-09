@@ -1,0 +1,3 @@
+{%- assign lang = page.lang | default: 'zh' -%}
+{%- assign L = site.data.i18n[lang] -%}
+{%- if lang == 'en' -%}{%- assign prefix = '/en' -%}{%- else -%}{%- assign prefix = '' -%}{%- endif -%}
