@@ -56,7 +56,8 @@
   var CT = {
   {%- for t in T %}"{{ t[0] }}": { color: {{ t[1].color | jsonify }}, icon: {{ t[1].icon | jsonify }}, name: {% if lang == 'en' %}{{ t[1].en | jsonify }}{% else %}{{ t[1].zh | jsonify }}{% endif %} }{% unless forloop.last %},{% endunless %}{% endfor %}
   };
-  var TALKS = {{ L.talks | jsonify }}, NCOUNTRY = {{ L.countries | jsonify }};
+  {% assign n_conf_all = 0 %}{% for y in site.data.conferences %}{% assign n_conf_all = n_conf_all | plus: y.items.size %}{% endfor %}
+  var TALKS = {{ L.talks | jsonify }}, NCOUNTRY = {{ L.countries | jsonify }}, TOTAL_CONFS = {{ n_conf_all }}; // 含線上會議（線上不標在地圖）
 
   function upx(svg) { return svg.viewBox.baseVal.width / (svg.getBoundingClientRect().width || 1); }
   function eq(svg, lat, lng) { var W = +svg.dataset.w, top = +svg.dataset.top; return [(lng + 180) / 360 * W, (top - lat) / 360 * W]; }
@@ -87,7 +88,7 @@
     });
     if (twList.length) circle(world, eq(world, 23.7, 121), 4 * uw, 'pin tw-mark', (COUNTRIES.TW || 'Taiwan') + ' · ' + twList.length + ' ' + TALKS);
     var keys = Object.keys(countries).sort(function (a, b) { return countries[b] - countries[a]; });
-    document.getElementById('conf-stat').textContent = CONFS.length + ' ' + TALKS + ' · ' + keys.length + ' ' + NCOUNTRY;
+    document.getElementById('conf-stat').textContent = TOTAL_CONFS + ' ' + TALKS + ' · ' + keys.length + ' ' + NCOUNTRY;
     document.getElementById('conf-countries').innerHTML = keys.map(function (k) { return '<span>' + (COUNTRIES[k] || k) + ' <b>' + countries[k] + '</b></span>'; }).join('');
   }
 
@@ -96,7 +97,13 @@
     [tw, kr].forEach(function (s) { s.querySelector(':scope > .pins').innerHTML = ''; });
     var groups = {};
     CAMPS.forEach(function (c) {
-      var key = (c.kr ? 'kr' : 'tw') + '|' + c.lat + ',' + c.lng;
+      // 距離小於約 0.08°（約 8 km）的地點合併為同一個圖示，避免重疊
+      var m = c.kr ? 'kr' : 'tw', key = null;
+      Object.keys(groups).forEach(function (k) {
+        var a = k.split('|'), ll = a[1].split(',');
+        if (!key && a[0] === m && Math.abs(ll[0] - c.lat) < 0.08 && Math.abs(ll[1] - c.lng) < 0.08) key = k;
+      });
+      key = key || (m + '|' + c.lat + ',' + c.lng);
       groups[key] = groups[key] || {}; (groups[key][c.type] = groups[key][c.type] || []).push(c);
     });
     Object.keys(groups).forEach(function (key) {

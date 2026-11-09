@@ -24,7 +24,7 @@ monsoon:
 support:
   zh: 雷達站支援觀測
   en: Radar Station Support
-  color: "#0b2545"
+  color: "var(--ty-support)"   # 深藍；深色模式自動改淺色（見 style.css）
   icon: <path d="M5 20h14"/><path d="M12 20v-6"/><path d="M6 10a6 6 0 0 0 12 0z"/><path d="M12 10l4-6"/>
 training:
   zh: 測試與教育訓練

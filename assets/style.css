@@ -17,6 +17,8 @@
   --line: #e2e8ef;
   --head-from: #0b2545;
   --head-to: #13406b;
+  --ty-support: #0b2545;
+  --on-accent: #ffffff;
   --maxw: 1080px;
   --radius: 14px;
   --sans: "Inter", "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
@@ -26,12 +28,16 @@
     --blue: #5aa9e6; --teal: #3cc7b8; --green: #5fc181; --amber: #f2b33d; --coral: #f07f63; --navy: #8fb3de;
     --bg: #0d131b; --bg-alt: #131b25; --surface: #18222e; --text: #e6ebf1; --muted: #9aa7b5; --line: #263342;
     --head-from: #081a30; --head-to: #0f2c4a;
+    --ty-support: #a9bfdf;
+    --on-accent: #0d131b;
   }
 }
 :root[data-theme="dark"] {
   --blue: #5aa9e6; --teal: #3cc7b8; --green: #5fc181; --amber: #f2b33d; --coral: #f07f63; --navy: #8fb3de;
   --bg: #0d131b; --bg-alt: #131b25; --surface: #18222e; --text: #e6ebf1; --muted: #9aa7b5; --line: #263342;
   --head-from: #081a30; --head-to: #0f2c4a;
+  --ty-support: #a9bfdf;
+  --on-accent: #0d131b;
 }
 
 /* accent helpers: set --c for any element */
@@ -85,12 +91,12 @@ p { margin: 0 0 1em; }
   padding: 6px 14px; border-radius: 999px; transition: background .15s, color .15s;
 }
 .menu a:hover { text-decoration: none; color: var(--c); background: color-mix(in srgb, var(--c) 10%, transparent); }
-.menu a.active { color: #fff; background: var(--c); }
+.menu a.active { color: var(--on-accent); background: var(--c); }
 .lang-switch, .menu a.lang-switch {
   margin-left: 8px; padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 600;
   color: var(--teal); border: 1.5px solid var(--teal); transition: background .15s, color .15s;
 }
-.menu a.lang-switch:hover, .lang-switch:hover { text-decoration: none; background: var(--teal); color: #fff; }
+.menu a.lang-switch:hover, .lang-switch:hover { text-decoration: none; background: var(--teal); color: var(--on-accent); }
 .nav-mobile { display: none; align-items: center; gap: 8px; }
 .menu-btn { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
 .menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
@@ -282,7 +288,7 @@ p { margin: 0 0 1em; }
 .related[open] summary::before { transform: rotate(90deg); }
 .related summary .count {
   font-size: 15px; font-weight: 700; min-width: 28px; height: 28px; padding: 0 8px; border-radius: 999px;
-  display: inline-grid; place-items: center; background: var(--c); color: #fff;
+  display: inline-grid; place-items: center; background: var(--c); color: var(--on-accent);
 }
 .related summary:hover { opacity: .85; }
 .pub-list.compact, .conf-list.compact { margin-top: 12px; gap: 10px; }
@@ -296,7 +302,7 @@ p { margin: 0 0 1em; }
 /* Topic tags on publications */
 .topic-tags { margin-top: 8px !important; display: flex; flex-wrap: wrap; gap: 6px; }
 .topic-tag { font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
-.topic-tag:hover { text-decoration: none; background: var(--c); color: #fff; }
+.topic-tag:hover { text-decoration: none; background: var(--c); color: var(--on-accent); }
 .filter-row { display: grid; gap: 10px; margin-bottom: 28px; }
 .filter-row .filter { margin-bottom: 0; }
 .filter.topics button.on { background: var(--c, var(--page)); border-color: var(--c, var(--page)); }
@@ -340,7 +346,7 @@ p { margin: 0 0 1em; }
   background: var(--surface); color: var(--text); transition: all .15s;
 }
 .filter button:hover, .year-tabs button:hover { border-color: var(--page); color: var(--page); }
-.filter button.on, .year-tabs button.on { background: var(--page); border-color: var(--page); color: #fff; }
+.filter button.on, .year-tabs button.on { background: var(--page); border-color: var(--page); color: var(--on-accent); }
 .year-tabs small { margin-left: 6px; font-size: 12px; opacity: .7; }
 
 .pub-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
@@ -351,7 +357,7 @@ p { margin: 0 0 1em; }
 .pub-authors, .pub-venue { font-size: 15px; color: var(--muted); }
 .pub-authors b { color: var(--text); }
 .doi { display: inline-block; margin-left: 6px; font-size: 12px; font-weight: 700; padding: 0 8px; border-radius: 4px; border: 1px solid currentColor; color: var(--amber); }
-.doi:hover { text-decoration: none; background: var(--amber); color: #fff; }
+.doi:hover { text-decoration: none; background: var(--amber); color: var(--on-accent); }
 
 /* Conferences */
 .year-panel h2 { font-size: 30px; }
@@ -378,7 +384,7 @@ p { margin: 0 0 1em; }
 .camp-list li.year-sep::before { display: none; }
 .camp-list li.year-sep span {
   position: relative; z-index: 1; display: inline-block; margin-left: 98px; padding: 2px 12px; border-radius: 999px;
-  font-size: 14px; font-weight: 700; color: #fff; background: var(--green);
+  font-size: 14px; font-weight: 700; color: var(--on-accent); background: var(--green);
 }
 .type-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: var(--t); padding: 1px 10px 1px 6px; border-radius: 999px; background: color-mix(in srgb, var(--t) 12%, transparent); }
 .type-chip svg, .legend-item svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -391,8 +397,8 @@ p { margin: 0 0 1em; }
   background: var(--surface); color: var(--t); transition: background .15s, color .15s;
 }
 .legend-item small { font-size: 11px; opacity: .75; }
-.legend-item.on { background: var(--t); color: #fff; border-color: var(--t); }
-@media (hover: hover) { .legend-item:hover { background: var(--t); color: #fff; border-color: var(--t); } }
+.legend-item.on { background: var(--t); color: var(--on-accent); border-color: var(--t); }
+@media (hover: hover) { .legend-item:hover { background: var(--t); color: var(--on-accent); border-color: var(--t); } }
 .map-box { position: relative; }
 .map-stack { display: grid; grid-template-columns: 2.34fr 1fr; gap: 10px; align-items: start; } /* 韓國圖高度約為台灣的 1/3 */
 .map-box.korea { border-radius: 10px; }
@@ -416,7 +422,7 @@ p { margin: 0 0 1em; }
 .pager-title { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
 .pager-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip { padding: 8px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
-.chip:hover { text-decoration: none; background: var(--c); color: #fff; }
+.chip:hover { text-decoration: none; background: var(--c); color: var(--on-accent); }
 
 /* Footer */
 .footer { background: var(--head-from); color: #b9cbe0; padding: 32px 0; font-size: 14px; }

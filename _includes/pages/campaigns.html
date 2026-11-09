@@ -66,7 +66,13 @@ var CTYPES = {
     // group by map + location + type
     var groups = {};
     CAMPS.forEach(function (c) {
-      var key = (c.kr ? 'kr' : 'tw') + '|' + c.lat + ',' + c.lng;
+      // 距離小於約 0.08°（約 8 km）的地點合併為同一個圖示，避免重疊
+      var m = c.kr ? 'kr' : 'tw', key = null;
+      Object.keys(groups).forEach(function (k) {
+        var a = k.split('|'), ll = a[1].split(',');
+        if (!key && a[0] === m && Math.abs(ll[0] - c.lat) < 0.08 && Math.abs(ll[1] - c.lng) < 0.08) key = k;
+      });
+      key = key || (m + '|' + c.lat + ',' + c.lng);
       groups[key] = groups[key] || {};
       (groups[key][c.type] = groups[key][c.type] || []).push(c);
     });
