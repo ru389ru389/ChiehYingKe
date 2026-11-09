@@ -18,7 +18,7 @@
   icon: <path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h7"/>
   title: 風場反演與劇烈天氣分析
   title_en: Wind Retrieval & Severe Weather Analysis
-  desc: 以多都卜勒雷達反演三維風場與熱動力場，分析梅雨鋒面、障礙噴流（barrier jet）與北台灣豪大雨的演變機制，揭示中尺度對流系統的動力與熱力結構。
+  desc: 以多都卜勒雷達反演三維風場與熱動力場，分析梅雨鋒面、地形噴流（barrier jet）與北台灣豪大雨的演變機制，揭示中尺度對流系統的動力與熱力結構。
   desc_en: Retrieving three-dimensional wind and thermodynamic fields from multiple-Doppler radar observations to investigate the evolution of Mei-Yu fronts, barrier jets and heavy rainfall over northern Taiwan, revealing the dynamic and thermodynamic structures of mesoscale convective systems.
 
 - topic: da
