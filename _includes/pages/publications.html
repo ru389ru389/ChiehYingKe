@@ -2,21 +2,41 @@
 {% assign types = "journal,preprint,book,thesis" | split: "," %}
 <section class="section">
   <div class="container">
-    <div class="filter" role="tablist">
-      <button class="on" data-f="all">{{ L.all }}</button>
-      {% for t in types %}<button data-f="{{ t }}">{{ L[t] }}</button>{% endfor %}
+    <div class="filter-row">
+      <div class="filter" role="tablist" data-key="type">
+        <button class="on" data-f="all">{{ L.all }}</button>
+        {% for t in types %}<button data-f="{{ t }}">{{ L[t] }}</button>{% endfor %}
+      </div>
+      <div class="filter topics" role="tablist" data-key="topics">
+        <button class="on" data-f="all">{{ L.all_topics }}</button>
+        {% for r in site.data.research %}<button class="c-{{ r.color }}" data-f="{{ r.topic }}">#{% if lang == 'en' %}{{ r.label_en }}{% else %}{{ r.label }}{% endif %}</button>{% endfor %}
+      </div>
     </div>
     <ol class="pub-list">
-      {% for p in site.data.publications %}{% include pub-item.html p=p L=L lang=lang %}{% endfor %}
+      {% for p in site.data.publications %}{% include pub-item.html p=p L=L lang=lang prefix=prefix tags=true %}{% endfor %}
     </ol>
+    <p class="empty" hidden>{{ L.no_match }}</p>
   </div>
 </section>
 <script>
-document.querySelectorAll('.filter button').forEach(function (b) {
-  b.addEventListener('click', function () {
-    document.querySelectorAll('.filter button').forEach(function (x) { x.classList.toggle('on', x === b); });
-    var f = b.dataset.f;
-    document.querySelectorAll('.pub').forEach(function (li) { li.hidden = !(f === 'all' || li.dataset.type === f); });
+(function () {
+  var state = { type: 'all', topics: 'all' };
+  function apply() {
+    var shown = 0;
+    document.querySelectorAll('.pub').forEach(function (li) {
+      var ok = (state.type === 'all' || li.dataset.type === state.type) &&
+               (state.topics === 'all' || (' ' + li.dataset.topics + ' ').indexOf(' ' + state.topics + ' ') >= 0);
+      li.hidden = !ok; if (ok) shown++;
+    });
+    document.querySelector('.empty').hidden = shown > 0;
+  }
+  document.querySelectorAll('.filter').forEach(function (group) {
+    group.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        group.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        state[group.dataset.key] = b.dataset.f; apply();
+      });
+    });
   });
-});
+})();
 </script>

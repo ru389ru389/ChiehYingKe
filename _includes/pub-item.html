@@ -1,11 +1,18 @@
-{%- comment -%} 單筆著作。參數：p（著作資料）、L（介面文字）、lang {%- endcomment -%}
+{%- comment -%} 單筆著作。參數：p（著作資料）、L（介面文字）、lang、prefix、tags（是否顯示研究專長標籤） {%- endcomment -%}
 {%- assign p = include.p -%}{%- assign L = include.L -%}
-<li class="pub" data-type="{{ p.type }}">
+<li class="pub" data-type="{{ p.type }}" data-topics="{{ p.topics | join: ' ' }}">
   <span class="pub-year">{% if include.lang == 'en' and p.year_en %}{{ p.year_en }}{% else %}{{ p.year }}{% endif %}</span>
   <div>
     <span class="kind k-{{ p.type }}">{{ L[p.type] }}</span>
     <p class="pub-title">{% if include.lang == 'en' and p.title_en %}{{ p.title_en }}{% else %}{{ p.title }}{% endif %}</p>
     <p class="pub-authors">{% if include.lang == 'en' and p.authors_en %}{{ p.authors_en }}{% else %}{{ p.authors }}{% endif %}</p>
     <p class="pub-venue">{% if include.lang == 'en' and p.venue_en %}{{ p.venue_en }}{% else %}{{ p.venue }}{% endif %}{% if p.doi %} <a class="doi" href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}</p>
+    {% if include.tags and p.topics %}
+    <p class="topic-tags">
+      {% for t in p.topics %}{% assign r = site.data.research | where: "topic", t | first %}{% if r %}
+      <a class="topic-tag c-{{ r.color }}" href="{{ include.prefix | append: '/research/' | relative_url }}#{{ r.topic }}">#{% if include.lang == 'en' %}{{ r.label_en }}{% else %}{{ r.label }}{% endif %}</a>
+      {% endif %}{% endfor %}
+    </p>
+    {% endif %}
   </div>
 </li>

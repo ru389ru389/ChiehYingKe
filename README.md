@@ -16,6 +16,7 @@ Live site: https://ru389ru389.github.io/ChiehYingKe/
 | `*.html`、`en/*.html` | 中文／英文頁面入口（只有標題與網址設定） |
 | `_data/publications.yml` | 著作；`topics` 決定列在哪個研究專長下 |
 | `_data/conferences.yml` | 研討會；`text_en` 為英文版 |
+| `_data/places.yml` | 研討會地點座標（世界地圖用）；研討會加 `place:` 代碼即可標在地圖上 |
 | `_data/campaigns.yml` | 野外觀測 |
 | `_data/research.yml` | 研究專長（中英文） |
 | `_data/i18n.yml` | 介面文字（中英文） |

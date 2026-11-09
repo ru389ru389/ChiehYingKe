@@ -22,6 +22,12 @@ zh:
   intl: 國際
   local: 國內
   related_pubs: 相關著作
+  all_topics: 全部主題
+  no_match: 沒有符合條件的著作。
+  all_years: 全部
+  map_hint: 點選地圖上的圓點查看該地的研討會；圓點越大代表場次越多。
+  talks: 場
+  online: 線上會議（未標示於地圖）
   related_confs: 相關研討會發表
   see_campaigns: 查看野外觀測紀錄 →
   unit: 國立中央大學 大氣科學系 雷達實驗室
@@ -49,6 +55,12 @@ en:
   intl: International
   local: Domestic
   related_pubs: Related publications
+  all_topics: All topics
+  no_match: No publications match the selected filters.
+  all_years: All
+  map_hint: Click a circle to see the conferences held there; larger circles mean more talks.
+  talks: talk(s)
+  online: Online meeting (not shown on map)
   related_confs: Related conference presentations
   see_campaigns: See field campaign records →
   unit: Radar Laboratory, Department of Atmospheric Sciences, National Central University

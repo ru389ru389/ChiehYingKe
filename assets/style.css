@@ -220,30 +220,36 @@ p { margin: 0 0 1em; }
 .pills li { font-size: 14px; padding: 3px 12px; border-radius: 999px; background: color-mix(in srgb, var(--c) 12%, transparent); color: var(--text); }
 
 /* Research */
-.research-list { display: grid; gap: 20px; }
+.research-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; align-items: start; }
 .research {
-  display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 30px;
-  background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--c); border-radius: var(--radius);
+  padding: 28px; background: var(--surface); border: 1px solid var(--line);
+  border-top: 6px solid var(--c); border-radius: var(--radius); scroll-margin-top: 84px;
 }
-.r-icon { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, transparent); }
-.r-icon svg { width: 32px; height: 32px; }
-.r-num { font-size: 13px; font-weight: 700; color: var(--c); letter-spacing: .1em; margin: 0 0 2px; }
-.research h2 { font-size: 21px; margin-bottom: 10px; }
+.research:target { box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 35%, transparent); }
+.r-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.r-icon { flex: none; width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, transparent); }
+.r-icon svg { width: 30px; height: 30px; }
+.r-num { font-size: 13px; font-weight: 700; color: var(--c); letter-spacing: .1em; margin: 0; }
+.research h2 { font-size: 20px; margin: 0; }
 .research h2::after { display: none; }
-.research p { color: var(--muted); margin: 0; }
-.more-link { display: inline-block; margin-top: 12px; font-weight: 600; color: var(--c); }
+.r-desc { color: var(--muted); margin: 0; font-size: 16px; }
+.more-link { display: inline-block; margin-top: 10px; font-weight: 600; color: var(--c); }
 
 /* Related publications under research topics */
 .r-body { min-width: 0; }
 .related { margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 12px; }
 .related summary {
-  cursor: pointer; list-style: none; font-size: 15px; font-weight: 600; color: var(--c);
-  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; list-style: none; font-size: 17px; font-weight: 700; color: var(--c);
+  display: flex; align-items: center; gap: 10px; padding: 6px 0;
 }
 .related summary::-webkit-details-marker { display: none; }
-.related summary::before { content: "▸"; transition: transform .15s; }
+.related summary::before { content: "▸"; font-size: 15px; transition: transform .15s; }
 .related[open] summary::before { transform: rotate(90deg); }
-.related summary small { font-size: 12px; padding: 0 8px; border-radius: 999px; background: color-mix(in srgb, var(--c) 14%, transparent); }
+.related summary .count {
+  font-size: 15px; font-weight: 700; min-width: 28px; height: 28px; padding: 0 8px; border-radius: 999px;
+  display: inline-grid; place-items: center; background: var(--c); color: #fff;
+}
+.related summary:hover { opacity: .85; }
 .pub-list.compact, .conf-list.compact { margin-top: 12px; gap: 10px; }
 .pub-list.compact .pub { padding: 14px 16px; grid-template-columns: 64px 1fr; gap: 14px; background: var(--bg-alt); border-color: transparent; }
 .pub-list.compact .pub-year { font-size: 16px; }
@@ -251,6 +257,29 @@ p { margin: 0 0 1em; }
 .pub-list.compact .pub-authors, .pub-list.compact .pub-venue { font-size: 14px; }
 .conf-list.compact li { background: var(--bg-alt); border-color: transparent; border-left-color: var(--c); padding: 12px 16px; }
 .research .related p { margin: 0; }
+
+/* Topic tags on publications */
+.topic-tags { margin-top: 8px !important; display: flex; flex-wrap: wrap; gap: 6px; }
+.topic-tag { font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+.topic-tag:hover { text-decoration: none; background: var(--c); color: #fff; }
+.filter-row { display: grid; gap: 10px; margin-bottom: 28px; }
+.filter-row .filter { margin-bottom: 0; }
+.filter.topics button.on { background: var(--c, var(--page)); border-color: var(--c, var(--page)); }
+.filter.topics button:not(.on) { color: var(--c, var(--text)); }
+.empty { color: var(--muted); text-align: center; padding: 24px 0; }
+
+/* Conference map */
+.map-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-bottom: 32px; }
+#confmap { height: 420px; background: var(--bg-alt); z-index: 0; }
+.map-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding: 12px 18px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
+.map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.map-legend .map-hint { margin-left: auto; font-size: 13px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); }
+.dot.intl { background: #e0573a; } .dot.local { background: #1f6fb2; }
+.leaflet-popup-content { font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+.leaflet-popup-content ul { margin: 6px 0 0; padding-left: 18px; }
+.leaflet-popup-content li { margin-bottom: 4px; }
+.year-tabs { position: sticky; top: 64px; z-index: 5; background: var(--bg); padding: 10px 0; margin-top: -10px; }
 
 /* Publications */
 .filter, .year-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
@@ -309,6 +338,7 @@ p { margin: 0 0 1em; }
    Responsive
    ========================================================= */
 @media (max-width: 900px) {
+  .research-grid { grid-template-columns: 1fr; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .two-col { grid-template-columns: 1fr; gap: 28px; }
@@ -337,8 +367,10 @@ p { margin: 0 0 1em; }
   .page-head { padding: 44px 0 40px; }
   .head-rings { width: 200px; height: 200px; right: -70px; }
   .section { padding: 44px 0; }
-  .research { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
-  .r-icon { width: 52px; height: 52px; }
+  .research { padding: 22px; }
+  .r-icon { width: 48px; height: 48px; }
+  #confmap { height: 300px; }
+  .map-legend .map-hint { margin-left: 0; }
   .pub, .pub-list.compact .pub { grid-template-columns: 1fr; gap: 4px; padding: 18px; }
   .pub-year { font-size: 17px; }
   .camp-list { padding-left: 0; }

@@ -1,6 +1,8 @@
 # 研究專長。topic 對應 publications.yml 裡的 topics，用來自動列出相關論文。
 
 - topic: radar
+  label: 雷達觀測
+  label_en: Radar Observation
   color: blue
   icon: <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 L19 6"/>
   title: 雷達觀測與野外實驗
@@ -10,6 +12,8 @@
   campaigns: true
 
 - topic: retrieval
+  label: 風場反演
+  label_en: Wind Retrieval
   color: teal
   icon: <path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h7"/>
   title: 風場反演與劇烈天氣分析
@@ -18,6 +22,8 @@
   desc_en: Retrieving three-dimensional wind and thermodynamic fields from multiple-Doppler radar observations to investigate the evolution of Mei-Yu fronts, barrier jets and heavy rainfall over northern Taiwan, revealing the dynamic and thermodynamic structures of mesoscale convective systems.
 
 - topic: da
+  label: 資料同化
+  label_en: Data Assimilation
   color: amber
   icon: <path d="M4 17c3-6 5-6 8 0s5 6 8 0"/><path d="M4 9h6M14 9h6"/><circle cx="12" cy="9" r="2"/>
   title: 雷達資料同化
@@ -26,6 +32,8 @@
   desc_en: Assimilating radar observations together with retrieved thermodynamic variables such as temperature and water vapor in EnKF / WRF-LETKF systems, and evaluating their impact on model initial conditions, cloud microphysical processes and convective-scale quantitative precipitation forecasts.
 
 - topic: ensemble
+  label: 系集分析
+  label_en: Ensemble Analysis
   color: coral
   icon: <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="9" r="1.5"/><circle cx="15" cy="8" r="1.5"/><circle cx="10" cy="15" r="1.5"/><circle cx="16" cy="15" r="1.5"/>
   title: 系集模擬與機器學習分析
@@ -34,6 +42,8 @@
   desc_en: Conducting WRF ensemble simulations combined with ensemble sensitivity analysis (ESA) and unsupervised machine-learning clustering such as k-means to explore the dynamic and thermodynamic controls of heavy rainfall in northern and southern Taiwan.
 
 - topic: arctic
+  label: 北極大氣
+  label_en: Arctic
   color: green
   icon: <path d="M12 2v20M4 6l16 12M20 6L4 18"/>
   title: 北極大氣研究
