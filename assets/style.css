@@ -452,6 +452,12 @@ p { margin: 0 0 1em; }
   .two-col { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 760px) {
+  /* 首頁地圖：手機只顯示地圖本身 */
+  .home-maps { padding-top: 28px; }
+  .home-maps-grid { gap: 14px; }
+  .hmap-card { padding: 10px; gap: 0; }
+  .hmap-head, .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
+  .hmap-card.c-green .hmap-fig { max-width: 320px; }
   .container { padding: 0 16px; }
   .nav-mobile { display: flex; }
   .menu-btn { display: block; }
