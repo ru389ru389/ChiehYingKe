@@ -86,14 +86,12 @@ p { margin: 0 0 1em; }
 }
 .menu a:hover { text-decoration: none; color: var(--c); background: color-mix(in srgb, var(--c) 10%, transparent); }
 .menu a.active { color: #fff; background: var(--c); }
-.nav-right { display: flex; align-items: center; gap: 10px; }
-.lang-switch {
-  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px;
-  font-size: 14px; font-weight: 600; color: var(--text); border: 1.5px solid var(--line);
-  transition: border-color .15s, color .15s;
+.lang-switch, .menu a.lang-switch {
+  margin-left: 8px; padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 600;
+  color: var(--teal); border: 1.5px solid var(--teal); transition: background .15s, color .15s;
 }
-.lang-switch:hover { text-decoration: none; border-color: var(--teal); color: var(--teal); }
-.lang-switch svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.menu a.lang-switch:hover, .lang-switch:hover { text-decoration: none; background: var(--teal); color: #fff; }
+.nav-mobile { display: none; align-items: center; gap: 8px; }
 .menu-btn { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
 .menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
 
@@ -317,7 +315,10 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 760px) {
   .container { padding: 0 16px; }
+  .nav-mobile { display: flex; }
   .menu-btn { display: block; }
+  .nav-mobile .lang-switch { margin: 0; padding: 4px 12px; font-size: 13px; }
+  .menu .lang-switch { display: none; }
   .menu {
     display: none; position: absolute; top: 64px; left: 0; right: 0;
     flex-direction: column; gap: 4px; padding: 12px 16px 16px;
@@ -339,7 +340,6 @@ p { margin: 0 0 1em; }
   .research { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
   .r-icon { width: 52px; height: 52px; }
   .pub, .pub-list.compact .pub { grid-template-columns: 1fr; gap: 4px; padding: 18px; }
-  .lang-switch { padding: 4px 10px; font-size: 13px; }
   .pub-year { font-size: 17px; }
   .camp-list { padding-left: 0; }
   .camp-list::before { left: 6px; }

@@ -28,16 +28,14 @@
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="7"/><path d="M16 16 L26 10"/></svg>
       Chieh-Ying Ke
     </a>
-    <div class="nav-right">
-      <nav class="menu">
-        {% for item in site.nav offset: 1 %}{% assign u = prefix | append: item.url %}
-        <a href="{{ u | relative_url }}" class="c-{{ item.color }}{% if page.url == u %} active{% endif %}">{% if lang == 'en' %}{{ item.title_en }}{% else %}{{ item.title }}{% endif %}</a>
-        {% endfor %}
-      </nav>
-      <a class="lang-switch" href="{{ other_url | relative_url }}" title="{{ L.switch_title }}" lang="{% if lang == 'en' %}zh-Hant{% else %}en{% endif %}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg>
-        {{ L.switch_label }}
-      </a>
+    <nav class="menu">
+      {% for item in site.nav offset: 1 %}{% assign u = prefix | append: item.url %}
+      <a href="{{ u | relative_url }}" class="c-{{ item.color }}{% if page.url == u %} active{% endif %}">{% if lang == 'en' %}{{ item.title_en }}{% else %}{{ item.title }}{% endif %}</a>
+      {% endfor %}
+      <a class="lang-switch" href="{{ other_url | relative_url }}" title="{{ L.switch_title }}" lang="{% if lang == 'en' %}zh-Hant{% else %}en{% endif %}">{% if lang == 'en' %}中文{% else %}English{% endif %}</a>
+    </nav>
+    <div class="nav-mobile">
+      <a class="lang-switch" href="{{ other_url | relative_url }}" title="{{ L.switch_title }}">{{ L.switch_label }}</a>
       <button class="menu-btn" aria-label="{{ L.menu }}" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
         <span></span><span></span><span></span>
       </button>
