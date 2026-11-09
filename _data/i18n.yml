@@ -22,6 +22,12 @@ zh:
   intl: 國際
   local: 國內
   related_pubs: 相關著作
+  map_conf_title: 研討會足跡
+  map_camp_title: 野外觀測足跡
+  see_confs: 查看研討會 →
+  recent_confs: 近期國際會議發表
+  see_camps: 查看野外觀測 →
+  countries: 個國家
   all_topics: 全部主題
   no_match: 沒有符合條件的著作。
   all_years: 全部
@@ -55,6 +61,12 @@ en:
   intl: International
   local: Domestic
   related_pubs: Related publications
+  map_conf_title: Conference Venues
+  map_camp_title: Field Campaign Sites
+  see_confs: See conferences →
+  recent_confs: Recent international presentations
+  see_camps: See field campaigns →
+  countries: countries
   all_topics: All topics
   no_match: No publications match the selected filters.
   all_years: All

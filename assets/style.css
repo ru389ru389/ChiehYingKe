@@ -142,6 +142,41 @@ p { margin: 0 0 1em; }
 .stat b { display: block; font-size: 34px; line-height: 1.1; color: var(--c); font-variant-numeric: tabular-nums; }
 .stat span { font-size: 14px; color: var(--muted); }
 
+/* Home maps */
+.home-maps { padding: 48px 0 8px; }
+.home-maps-grid { display: grid; grid-template-columns: 1.9fr 1fr; gap: 20px; align-items: stretch; }
+.hmap-card {
+  display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--c); color: var(--text);
+  transition: box-shadow .18s, transform .18s;
+}
+.hmap-card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: 0 14px 34px color-mix(in srgb, var(--c) 20%, transparent); }
+.hmap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.hmap-head h3 { font-size: 19px; }
+.hmap-stat { font-size: 14px; font-weight: 600; color: var(--c); }
+.hmap-fig svg { display: block; width: 100%; height: auto; border-radius: 10px; }
+.hmap-card.c-green .hmap-fig { max-width: 300px; width: 100%; margin: 0 auto; }
+.recent-confs { border-top: 1px dashed var(--line); padding-top: 12px; }
+.recent-title { margin: 0 0 8px; font-size: 14px; font-weight: 700; color: var(--coral); }
+.recent-confs ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.recent-confs li { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: baseline; font-size: 14px; }
+.recent-confs li b { color: var(--coral); font-variant-numeric: tabular-nums; }
+.recent-confs li small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.inset-frame { fill: color-mix(in srgb, var(--blue) 5%, var(--bg)); stroke: color-mix(in srgb, var(--muted) 45%, transparent); stroke-width: 1; }
+.home-cmap .inset-frame { stroke-width: .8; }
+.inset-text { font-family: var(--sans); font-size: 11px; font-weight: 700; fill: var(--muted); }
+.home-cmap .inset-text { font-size: 7px; }
+.pin.tw-mark { fill: none; stroke: #e0573a; stroke-width: 1.5; stroke-dasharray: 2 2; pointer-events: none; }
+.hmap-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.hmap-foot .lg { display: inline-flex; align-items: center; gap: 6px; }
+.country-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.country-chips span { padding: 1px 9px; border-radius: 999px; background: var(--bg-alt); font-size: 12px; }
+.country-chips b { color: var(--coral); }
+.hmap-foot.types { gap: 6px; }
+.tlg { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--t); padding: 1px 8px 1px 5px; border-radius: 999px; background: color-mix(in srgb, var(--t) 10%, transparent); }
+.tlg svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hmap-card .go { font-size: 14px; font-weight: 600; color: var(--c); margin-top: auto; }
+
 /* Tiles */
 .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
 .tile {
@@ -394,6 +429,10 @@ p { margin: 0 0 1em; }
    Responsive
    ========================================================= */
 @media (max-width: 900px) {
+  .home-maps-grid { grid-template-columns: 1fr; }
+  .country-chips { margin-left: 0; }
+  .recent-confs li { grid-template-columns: 40px 1fr; }
+  .recent-confs li small { grid-column: 2; white-space: normal; }
   .camp-layout { grid-template-columns: 1fr; gap: 24px; }
   .camp-maps {
     position: static; order: -1; width: 100%; max-width: 520px; margin: 0 auto; padding: 12px;
