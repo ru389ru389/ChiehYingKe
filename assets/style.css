@@ -327,7 +327,7 @@ p { margin: 0 0 1em; }
 .conf-list em { font-style: normal; color: var(--text); font-weight: 500; }
 
 /* Campaigns */
-.camp-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; align-items: start; }
+.camp-layout { display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: 36px; align-items: start; }
 .camp-list { list-style: none; padding: 0; margin: 0; position: relative; }
 .camp-list::before { content: ""; position: absolute; left: 127px; top: 8px; bottom: 8px; width: 2px; background: color-mix(in srgb, var(--green) 30%, transparent); }
 .camp-list li { display: grid; grid-template-columns: 112px 1fr; gap: 36px; padding: 8px 0; position: relative; transition: opacity .2s; }
@@ -350,7 +350,6 @@ p { margin: 0 0 1em; }
 
 .camp-maps { position: sticky; top: 84px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
 .camp-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.camp-maps { max-height: calc(100vh - 100px); overflow: auto; }
 .legend-item {
   font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
   padding: 3px 10px 3px 7px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--t) 40%, transparent);
@@ -360,11 +359,8 @@ p { margin: 0 0 1em; }
 .legend-item.on { background: var(--t); color: #fff; border-color: var(--t); }
 @media (hover: hover) { .legend-item:hover { background: var(--t); color: #fff; border-color: var(--t); } }
 .map-box { position: relative; }
-.map-stack { position: relative; }
-.map-box.korea {
-  position: absolute; right: 8px; bottom: 8px; width: 40%;
-  border: 1.5px solid var(--line); border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,.12); background: var(--surface);
-}
+.map-stack { display: grid; grid-template-columns: 1.65fr 1fr; gap: 10px; align-items: start; }
+.map-box.korea { border-radius: 10px; }
 .map-box.korea .map-label { top: 4px; left: 6px; font-size: 11px; }
 .map-label { position: absolute; top: 8px; left: 10px; margin: 0; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .05em; z-index: 1; }
 .rmap { display: block; width: 100%; height: auto; border-radius: 10px; }
@@ -399,7 +395,7 @@ p { margin: 0 0 1em; }
    ========================================================= */
 @media (max-width: 900px) {
   .camp-layout { grid-template-columns: 1fr; gap: 24px; }
-  .camp-maps { position: static; order: -1; max-width: 460px; width: 100%; margin: 0 auto; }
+  .camp-maps { position: static; order: -1; max-width: 520px; width: 100%; margin: 0 auto; }
   .research-grid { grid-template-columns: 1fr; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
