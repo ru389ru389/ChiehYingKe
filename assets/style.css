@@ -455,8 +455,10 @@ p { margin: 0 0 1em; }
   /* 首頁地圖：手機只顯示地圖本身 */
   .home-maps { padding-top: 28px; }
   .home-maps-grid { gap: 14px; }
-  .hmap-card { padding: 10px; gap: 0; }
-  .hmap-head, .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
+  .hmap-card { padding: 12px; gap: 8px; }
+  .hmap-head { padding: 2px 4px 0; }
+  .hmap-head h3 { font-size: 17px; }
+  .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
   .hmap-card.c-green .hmap-fig { max-width: 320px; }
   .container { padding: 0 16px; }
   .nav-mobile { display: flex; }
