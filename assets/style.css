@@ -338,11 +338,19 @@ p { margin: 0 0 1em; }
 .camp-card p { margin: 0; font-size: 14px; color: var(--muted); }
 .camp-list li.hl .camp-card { box-shadow: 0 8px 24px color-mix(in srgb, var(--t) 30%, transparent); transform: translateX(4px); }
 .camp-list li.dim { opacity: .3; }
+.camp-list li.year-sep { display: block; padding: 18px 0 6px; }
+.camp-list li.year-sep:first-child { padding-top: 0; }
+.camp-list li.year-sep::before { display: none; }
+.camp-list li.year-sep span {
+  position: relative; z-index: 1; display: inline-block; margin-left: 98px; padding: 2px 12px; border-radius: 999px;
+  font-size: 14px; font-weight: 700; color: #fff; background: var(--green);
+}
 .type-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: var(--t); padding: 1px 10px 1px 6px; border-radius: 999px; background: color-mix(in srgb, var(--t) 12%, transparent); }
 .type-chip svg, .legend-item svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .camp-maps { position: sticky; top: 84px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
 .camp-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.camp-maps { max-height: calc(100vh - 100px); overflow: auto; }
 .legend-item {
   font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
   padding: 3px 10px 3px 7px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--t) 40%, transparent);
@@ -352,8 +360,12 @@ p { margin: 0 0 1em; }
 .legend-item.on { background: var(--t); color: #fff; border-color: var(--t); }
 @media (hover: hover) { .legend-item:hover { background: var(--t); color: #fff; border-color: var(--t); } }
 .map-box { position: relative; }
-.map-box + .map-box { margin-top: 12px; }
-.map-box.korea { width: 62%; margin-left: auto; margin-right: auto; }
+.map-stack { position: relative; }
+.map-box.korea {
+  position: absolute; right: 8px; bottom: 8px; width: 40%;
+  border: 1.5px solid var(--line); border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,.12); background: var(--surface);
+}
+.map-box.korea .map-label { top: 4px; left: 6px; font-size: 11px; }
 .map-label { position: absolute; top: 8px; left: 10px; margin: 0; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .05em; z-index: 1; }
 .rmap { display: block; width: 100%; height: auto; border-radius: 10px; }
 .rmap .sea { fill: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
@@ -427,5 +439,7 @@ p { margin: 0 0 1em; }
   .camp-list::before { left: 6px; }
   .camp-list li { grid-template-columns: 1fr; gap: 6px; padding-left: 30px; }
   .camp-list li::before { left: 0; top: 14px; }
+  .camp-list li.year-sep { padding-left: 0; }
+  .camp-list li.year-sep span { margin-left: -6px; }
   .camp-when { text-align: left; padding-top: 0; }
 }

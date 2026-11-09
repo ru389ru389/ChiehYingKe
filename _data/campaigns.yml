@@ -1,24 +1,159 @@
 # 野外觀測紀錄（由新到舊）。
-# type 對應 _data/campaign_types.yml（梅雨鋒面、午後對流、颱風、西南氣流、雷達站支援、測試訓練、冬季降雪）
+# type 對應 _data/campaign_types.yml（梅雨鋒面、午後對流、颱風、西南氣流、雷達站支援、測試訓練、冬季降雪、豪雨觀測、海洋與海岸、綜合觀測）
 # lat / lng 為地圖座標；country: kr 會畫在韓國地圖，其餘畫在台灣地圖。_en 為英文版文字。
 
-- when: 2017.01.30 — 02.22
+- when: 2025.07.17 — 08.06
+  type: integrated
+  title: "2025 嘉義全大氣觀測與模擬實驗（FAOSE）"
+  title_en: "2025 Chiayi Full-Atmosphere Observation and Simulation Experiment (FAOSE)"
+  where: "嘉義 民雄堤防"
+  where_en: "Minxiong levee, Chiayi"
+  lat: 23.55
+  lng: 120.42
+
+- when: 2025.04.16
+  type: training
+  title: "掃描策略測試觀測"
+  title_en: "Scanning Strategy Test Observation"
+  where: "新北 樹林雷達站"
+  where_en: "Shulin Radar Station, New Taipei"
+  lat: 24.99
+  lng: 121.4
+
+- when: 2022.09.26 — 10.31
+  type: support
+  title: "支援氣象局花蓮雷達站觀測"
+  title_en: "Support Observations for the CWB Hualien Radar Station"
+  where: "花蓮 鹽寮天聖宮"
+  where_en: "Tiansheng Temple, Yanliao, Hualien"
+  lat: 23.9
+  lng: 121.6
+
+- when: 2022.05.19 — 08.01
+  type: heavyrain
+  title: "2022 臺灣區域豪雨觀測與預報實驗（TAHOPE）"
+  title_en: "2022 Taiwan-Area Heavy Rain Observation and Prediction Experiment (TAHOPE)"
+  where: "桃園 永安漁港"
+  where_en: "Yong'an Fishing Harbor, Taoyuan"
+  lat: 24.99
+  lng: 121.01
+
+- when: 2021.11.24 — 12.01
+  type: heavyrain
+  title: "2021 宜蘭豪雨觀測實驗（YESRain）：IOP2"
+  title_en: "2021 Yilan Experiment of Severe Rainfall (YESRain): IOP2"
+  where: "淡江大學 蘭陽校區（宜蘭）"
+  where_en: "Lanyang Campus, Tamkang University, Yilan"
+  lat: 24.8
+  lng: 121.73
+
+- when: 2021.11.18
+  type: heavyrain
+  title: "2021 宜蘭豪雨觀測實驗（YESRain）：調整測試 Part 2"
+  title_en: "2021 Yilan Experiment of Severe Rainfall (YESRain): Adjustment Test Part 2"
+  where: "淡江大學 蘭陽校區（宜蘭）"
+  where_en: "Lanyang Campus, Tamkang University, Yilan"
+  lat: 24.8
+  lng: 121.73
+
+- when: 2021.11.01 — 11.04
+  type: heavyrain
+  title: "2021 宜蘭豪雨觀測實驗（YESRain）：架站與 IOP1"
+  title_en: "2021 Yilan Experiment of Severe Rainfall (YESRain): Site Setup and IOP1"
+  where: "淡江大學 蘭陽校區（宜蘭）"
+  where_en: "Lanyang Campus, Tamkang University, Yilan"
+  lat: 24.8
+  lng: 121.73
+
+- when: 2020.11.19 — 11.23
+  type: heavyrain
+  title: "2020 宜蘭豪雨觀測實驗（YESRain）"
+  title_en: "2020 Yilan Experiment of Severe Rainfall (YESRain)"
+  where: "淡江大學 蘭陽校區（宜蘭）"
+  where_en: "Lanyang Campus, Tamkang University, Yilan"
+  lat: 24.8
+  lng: 121.73
+
+- when: 2020.09.24
+  type: training
+  title: "TEAM-R 測試觀測 with MRR Pro"
+  title_en: "TEAM-R Test Observation with MRR Pro"
+  where: "中央大學 雷達車庫旁"
+  where_en: "Next to the radar garage, National Central University"
+  lat: 24.97
+  lng: 121.19
+
+- when: 2020.09.02 — 09.04
+  type: marine
+  title: "台灣北部海面漂流浮標與岸基雷達聯合觀測實驗"
+  title_en: "Joint Drifting-Buoy and Shore-Based Radar Observation Experiment off Northern Taiwan"
+  where: "北海岸 愛之船民宿"
+  where_en: "Aizhichuan Guesthouse, North Coast"
+  lat: 25.29
+  lng: 121.56
+
+- when: 2020.06.04
+  type: heavyrain
+  title: "TAHOPE Dry Run"
+  title_en: "TAHOPE Dry Run"
+  where: "新竹 港南風景區 S-PolKa 站址"
+  where_en: "S-PolKa site, Gangnan Scenic Area, Hsinchu"
+  lat: 24.78
+  lng: 120.92
+
+- when: 2020.02.19 — 02.21
+  type: heavyrain
+  title: "TAHOPE 行前觀測實驗"
+  title_en: "TAHOPE Pre-Campaign Observation Experiment"
+  where: "淡江大學 蘭陽校區（宜蘭）"
+  where_en: "Lanyang Campus, Tamkang University, Yilan"
+  lat: 24.8
+  lng: 121.73
+
+- when: 2019.06.24 — 07.24
+  type: convection
+  title: "2019 雙北都會區夏季對流暴雨之研究與防災應用觀測實驗（TASSE）"
+  title_en: "2019 Taipei Metropolitan Summer Convective Heavy Rainfall Research and Disaster-Prevention Observation Experiment (TASSE)"
+  where: "新北 五股自行車道"
+  where_en: "Wugu riverside bike path, New Taipei"
+  lat: 25.08
+  lng: 121.44
+
+- when: 2019.06.06
+  type: marine
+  title: "TEAM-R 移動式雷達觀測活動（Ørsted DD field experiment）"
+  title_en: "TEAM-R Mobile Radar Observation (Ørsted DD Field Experiment)"
+  where: "苗栗 竹南濕地"
+  where_en: "Zhunan Wetland, Miaoli"
+  lat: 24.69
+  lng: 120.86
+
+- when: 2018.06.25 — 07.09
+  type: convection
+  title: "2018 雙北都會區夏季對流暴雨之研究與防災應用觀測實驗（TASSE）"
+  title_en: "2018 Taipei Metropolitan Summer Convective Heavy Rainfall Research and Disaster-Prevention Observation Experiment (TASSE)"
+  where: "新北 五股自行車道"
+  where_en: "Wugu riverside bike path, New Taipei"
+  lat: 25.08
+  lng: 121.44
+
+- when: 2017.02.01 — 03.27
   type: winter
+  title: "2018 冬季奧運 RDP 觀測實驗（ICE-POP）"
+  title_en: "2018 Winter Olympics RDP Observation Experiment (ICE-POP)"
+  where: "韓國 平昌 大關嶺氣象站"
+  where_en: "Daegwallyeong Weather Station, PyeongChang, Korea"
+  lat: 37.68
+  lng: 128.72
   country: kr
-  title: ICE-POP 韓國平昌冬季奧運觀測實驗
-  title_en: ICE-POP Field Campaign for the PyeongChang Winter Olympics
-  where: 韓國 平昌
-  where_en: PyeongChang, Korea
-  lat: 37.37
-  lng: 128.39
   intl: true
 
-- when: 2016.09.01 — 09.03
+- when: 2016.09.01 — 09.10
   type: convection
-  title: 午後熱對流觀測（TASSE）
-  title_en: Afternoon Thunderstorm Observation (TASSE)
-  where: 新北 五股
-  where_en: Wugu, New Taipei
+  title: "2016 雙北都會區夏季對流暴雨之研究與防災應用觀測實驗（TASSE）"
+  title_en: "2016 Taipei Metropolitan Summer Convective Heavy Rainfall Research and Disaster-Prevention Observation Experiment (TASSE)"
+  where: "新北 五股自行車道"
+  where_en: "Wugu riverside bike path, New Taipei"
   lat: 25.08
   lng: 121.44
 

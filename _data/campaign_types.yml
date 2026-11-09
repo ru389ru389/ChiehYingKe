@@ -36,3 +36,18 @@ winter:
   en: Winter Snowfall
   color: "#5b8bd9"
   icon: <path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9 4l3 2 3-2M9 20l3-2 3 2"/>
+heavyrain:
+  zh: 豪雨觀測實驗
+  en: Heavy Rainfall Experiment
+  color: "#6a4fc4"
+  icon: <path d="M7 13a4 4 0 0 1 .5-8 5 5 0 0 1 9.6 1.5A3.3 3.3 0 0 1 17 13"/><path d="M8 16l-1 3M12 16l-1 3M16 16l-1 3"/>
+marine:
+  zh: 海洋與海岸觀測
+  en: Marine & Coastal
+  color: "#0e7fa6"
+  icon: <path d="M2 16c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M2 20c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M12 4v8M9 12h6"/>
+integrated:
+  zh: 綜合觀測實驗
+  en: Integrated Field Experiment
+  color: "#b23a7a"
+  icon: <circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.2 2.2 3.3 4.9 3.3 8s-1.1 5.8-3.3 8c-2.2-2.2-3.3-4.9-3.3-8S9.8 6.2 12 4z"/>

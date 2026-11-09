@@ -7,8 +7,8 @@
   icon: <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 L19 6"/>
   title: 雷達觀測與野外實驗
   title_en: Radar Observation & Field Campaigns
-  desc: 操作移動式氣象雷達 TEAM-R，負責場址勘查、系統架設、雷達觀測與資料分析。曾參與西南氣流聯合觀測實驗、五分山雷達站支援觀測、颱風觀測，以及韓國平昌冬奧 ICE-POP 國際觀測實驗。
-  desc_en: Operating the TEAM-R mobile weather radar, including site survey, system setup, radar operation and data analysis. Participated in the Southwest Monsoon joint observation experiments, Wufenshan radar station support observations, typhoon observations, and the ICE-POP international campaign for the PyeongChang Winter Olympics in Korea.
+  desc: 操作移動式氣象雷達 TEAM-R，負責場址勘查、系統架設、雷達觀測與資料分析。曾參與臺灣區域豪雨觀測與預報實驗（TAHOPE）、宜蘭豪雨觀測實驗（YESRain）、雙北夏季對流觀測（TASSE）、2025 嘉義全大氣觀測與模擬實驗（FAOSE）、西南氣流聯合觀測實驗、雷達站支援觀測，以及韓國平昌冬奧 ICE-POP 國際觀測實驗。
+  desc_en: Operating the TEAM-R mobile weather radar, including site survey, system setup, radar operation and data analysis. Participated in TAHOPE, YESRain, TASSE, the 2025 Chiayi FAOSE experiment, Southwest Monsoon joint observation experiments, radar station support observations, and the ICE-POP international campaign for the PyeongChang Winter Olympics in Korea.
   campaigns: true
 
 - topic: retrieval

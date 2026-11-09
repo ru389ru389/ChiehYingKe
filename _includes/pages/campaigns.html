@@ -4,7 +4,9 @@
   <div class="container camp-layout">
 
     <ol class="camp-list">
-      {% for c in site.data.campaigns %}{% assign ty = T[c.type] %}
+      {% assign prev_year = "" %}
+      {% for c in site.data.campaigns %}{% assign ty = T[c.type] %}{% assign cy = c.when | slice: 0, 4 %}
+      {% if cy != prev_year %}<li class="year-sep" aria-hidden="true"><span>{{ cy }}</span></li>{% assign prev_year = cy %}{% endif %}
       <li data-idx="{{ forloop.index0 }}" data-type="{{ c.type }}" style="--t: {{ ty.color }}">
         <span class="camp-when">{{ c.when }}</span>
         <div class="camp-card">
@@ -24,6 +26,7 @@
         </button>
         {% endif %}{% endfor %}
       </div>
+      <div class="map-stack">
       <div class="map-box">
         <p class="map-label">{% if lang == 'en' %}Taiwan{% else %}台灣{% endif %}</p>
         {% include camp-taiwan-map.svg.html %}
@@ -31,6 +34,7 @@
       <div class="map-box korea">
         <p class="map-label">{% if lang == 'en' %}Korea{% else %}韓國{% endif %}</p>
         {% include camp-korea-map.svg.html %}
+      </div>
       </div>
       <p class="map-note">{% if lang == 'en' %}Click an icon or a legend item to highlight the related campaigns.{% else %}點選地圖圖示或上方類型，可標示對應的觀測紀錄。{% endif %}</p>
     </aside>
@@ -52,7 +56,7 @@ var CTYPES = {
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
   var maps = { tw: document.querySelector('.map-box:not(.korea) .rmap'), kr: document.querySelector('.map-box.korea .rmap') };
-  var cards = document.querySelectorAll('.camp-list li');
+  var cards = document.querySelectorAll('.camp-list li[data-idx]');
   var active = null;
 
   function xy(svg, c) { var d = svg.dataset; return [(c.lng - d.lng0) * d.k * d.c, (d.lat0 - c.lat) * d.k]; }
