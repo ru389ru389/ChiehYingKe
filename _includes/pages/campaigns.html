@@ -1,16 +1,133 @@
 {% include lang-setup.html %}
+{% assign T = site.data.campaign_types %}
 <section class="section">
-  <div class="container">
+  <div class="container camp-layout">
+
     <ol class="camp-list">
-      {% for c in site.data.campaigns %}
-      <li>
+      {% for c in site.data.campaigns %}{% assign ty = T[c.type] %}
+      <li data-idx="{{ forloop.index0 }}" data-type="{{ c.type }}" style="--t: {{ ty.color }}">
         <span class="camp-when">{{ c.when }}</span>
         <div class="camp-card">
+          <span class="type-chip"><svg viewBox="0 0 24 24" aria-hidden="true">{{ ty.icon }}</svg>{% if lang == 'en' %}{{ ty.en }}{% else %}{{ ty.zh }}{% endif %}</span>
           <h3>{% if lang == 'en' %}{{ c.title_en }}{% else %}{{ c.title }}{% endif %}{% if c.intl %} <span class="kind k-intl">{{ L.intl }}</span>{% endif %}</h3>
           <p>{% if lang == 'en' %}{{ c.where_en }}{% else %}{{ c.where }}{% endif %}</p>
         </div>
       </li>
       {% endfor %}
     </ol>
+
+    <aside class="camp-maps">
+      <div class="camp-legend">
+        {% for t in T %}{% assign n = site.data.campaigns | where: "type", t[0] | size %}{% if n > 0 %}
+        <button class="legend-item" data-type="{{ t[0] }}" style="--t: {{ t[1].color }}">
+          <svg viewBox="0 0 24 24" aria-hidden="true">{{ t[1].icon }}</svg>{% if lang == 'en' %}{{ t[1].en }}{% else %}{{ t[1].zh }}{% endif %}<small>{{ n }}</small>
+        </button>
+        {% endif %}{% endfor %}
+      </div>
+      <div class="map-box">
+        <p class="map-label">{% if lang == 'en' %}Taiwan{% else %}台灣{% endif %}</p>
+        {% include camp-taiwan-map.svg.html %}
+      </div>
+      <div class="map-box korea">
+        <p class="map-label">{% if lang == 'en' %}Korea{% else %}韓國{% endif %}</p>
+        {% include camp-korea-map.svg.html %}
+      </div>
+      <p class="map-note">{% if lang == 'en' %}Click an icon or a legend item to highlight the related campaigns.{% else %}點選地圖圖示或上方類型，可標示對應的觀測紀錄。{% endif %}</p>
+    </aside>
   </div>
 </section>
+
+<script>
+var CAMPS = [
+{%- for c in site.data.campaigns %}{% assign ty = T[c.type] %}
+  { i: {{ forloop.index0 }}, type: "{{ c.type }}", kr: {% if c.country == 'kr' %}true{% else %}false{% endif %}, lat: {{ c.lat }}, lng: {{ c.lng }},
+    title: {% if lang == 'en' %}{{ c.title_en | jsonify }}{% else %}{{ c.title | jsonify }}{% endif %}, when: {{ c.when | jsonify }} },
+{%- endfor %}
+];
+var CTYPES = {
+{%- for t in T %}
+  "{{ t[0] }}": { color: {{ t[1].color | jsonify }}, icon: {{ t[1].icon | jsonify }}, name: {% if lang == 'en' %}{{ t[1].en | jsonify }}{% else %}{{ t[1].zh | jsonify }}{% endif %} }{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+};
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var maps = { tw: document.querySelector('.map-box:not(.korea) .rmap'), kr: document.querySelector('.map-box.korea .rmap') };
+  var cards = document.querySelectorAll('.camp-list li');
+  var active = null;
+
+  function xy(svg, c) { var d = svg.dataset; return [(c.lng - d.lng0) * d.k * d.c, (d.lat0 - c.lat) * d.k]; }
+
+  function draw() {
+    Object.keys(maps).forEach(function (k) { maps[k].querySelector('.pins').innerHTML = ''; });
+    // group by map + location + type
+    var groups = {};
+    CAMPS.forEach(function (c) {
+      var key = (c.kr ? 'kr' : 'tw') + '|' + c.lat + ',' + c.lng;
+      groups[key] = groups[key] || {};
+      (groups[key][c.type] = groups[key][c.type] || []).push(c);
+    });
+    Object.keys(groups).forEach(function (key) {
+      var svg = maps[key.split('|')[0]], types = Object.keys(groups[key]);
+      var u = svg.viewBox.baseVal.width / (svg.getBoundingClientRect().width || 300); // svg units per px
+      var R = 10.5 * u;
+      types.forEach(function (t, j) {
+        var list = groups[key][t], ty = CTYPES[t], p = xy(svg, list[0]);
+        var dy = j * R * 2.1;
+        var g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'cpin'); g.setAttribute('data-type', t);
+        g.setAttribute('data-idx', list.map(function (c) { return c.i; }).join(' '));
+        g.setAttribute('transform', 'translate(' + p[0].toFixed(2) + ',' + (p[1] + dy).toFixed(2) + ')');
+        g.style.color = ty.color;
+        g.innerHTML = '<circle r="' + R + '" class="cpin-bg"/>' +
+          '<svg x="' + (-R * .62) + '" y="' + (-R * .62) + '" width="' + (R * 1.24) + '" height="' + (R * 1.24) + '" viewBox="0 0 24 24" class="cpin-ic">' + ty.icon + '</svg>' +
+          (list.length > 1 ? '<circle class="cpin-badge" cx="' + R * .75 + '" cy="' + (-R * .75) + '" r="' + R * .45 + '"/><text class="cpin-n" x="' + R * .75 + '" y="' + (-R * .75) + '" font-size="' + R * .6 + '">' + list.length + '</text>' : '');
+        var tt = document.createElementNS(NS, 'title');
+        tt.textContent = ty.name + '\n' + list.map(function (c) { return c.when + '  ' + c.title; }).join('\n');
+        g.appendChild(tt);
+        g.addEventListener('click', function () { select({ idx: list.map(function (c) { return c.i; }) }, true); });
+        g.addEventListener('mouseenter', function () { hover(list.map(function (c) { return c.i; }), true); });
+        g.addEventListener('mouseleave', function () { hover([], false); });
+        svg.querySelector('.pins').appendChild(g);
+      });
+    });
+    apply();
+  }
+
+  function hover(idx, on) {
+    cards.forEach(function (li) { li.classList.toggle('hl', on && idx.indexOf(+li.dataset.idx) >= 0); });
+  }
+  function select(sel, scroll) {
+    var same = active && JSON.stringify(active) === JSON.stringify(sel);
+    active = same ? null : sel; apply();
+    if (active && scroll) {
+      var first = Array.prototype.find.call(cards, function (li) { return match(li); });
+      if (first && window.innerWidth > 900) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+  function match(li) {
+    if (!active) return true;
+    if (active.type) return li.dataset.type === active.type;
+    return active.idx.indexOf(+li.dataset.idx) >= 0;
+  }
+  function apply() {
+    cards.forEach(function (li) { li.classList.toggle('dim', !match(li)); });
+    document.querySelectorAll('.cpin').forEach(function (g) {
+      var on = !active || (active.type ? g.dataset.type === active.type : g.dataset.idx.split(' ').some(function (i) { return active.idx.indexOf(+i) >= 0; }));
+      g.classList.toggle('dim', !on);
+    });
+    document.querySelectorAll('.legend-item').forEach(function (b) { b.classList.toggle('on', !!(active && active.type === b.dataset.type)); });
+  }
+
+  document.querySelectorAll('.legend-item').forEach(function (b) {
+    b.addEventListener('click', function () { select({ type: b.dataset.type }, true); });
+  });
+  cards.forEach(function (li) {
+    li.addEventListener('mouseenter', function () {
+      document.querySelectorAll('.cpin').forEach(function (g) { g.classList.toggle('pulse', g.dataset.idx.split(' ').indexOf(li.dataset.idx) >= 0); });
+    });
+    li.addEventListener('mouseleave', function () { document.querySelectorAll('.cpin.pulse').forEach(function (g) { g.classList.remove('pulse'); }); });
+  });
+  draw();
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(draw, 150); });
+})();
+</script>

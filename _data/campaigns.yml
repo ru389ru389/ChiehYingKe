@@ -1,44 +1,122 @@
-# 野外觀測紀錄（由新到舊）。_en 為英文版文字。
+# 野外觀測紀錄（由新到舊）。
+# type 對應 _data/campaign_types.yml（梅雨鋒面、午後對流、颱風、西南氣流、雷達站支援、測試訓練、冬季降雪）
+# lat / lng 為地圖座標；country: kr 會畫在韓國地圖，其餘畫在台灣地圖。_en 為英文版文字。
 
-- when: 2017.01 — 02
+- when: 2017.01.30 — 02.22
+  type: winter
+  country: kr
   title: ICE-POP 韓國平昌冬季奧運觀測實驗
   title_en: ICE-POP Field Campaign for the PyeongChang Winter Olympics
   where: 韓國 平昌
   where_en: PyeongChang, Korea
+  lat: 37.37
+  lng: 128.39
   intl: true
 
-- when: 2016.09
+- when: 2016.09.01 — 09.03
+  type: convection
   title: 午後熱對流觀測（TASSE）
   title_en: Afternoon Thunderstorm Observation (TASSE)
   where: 新北 五股
   where_en: Wugu, New Taipei
+  lat: 25.08
+  lng: 121.44
 
-- when: 2016.05 — 06
+- when: 2016.05.22 — 06.10
+  type: monsoon
   title: 西南氣流聯合觀測實驗
   title_en: Southwest Monsoon Joint Observation Experiment
   where: 高屏溪大樹堤防｜台灣颱風洪水研究中心
   where_en: Dashu levee, Kaoping River | Taiwan Typhoon and Flood Research Institute
+  lat: 22.68
+  lng: 120.43
 
-- when: 2015.08 — 10
-  title: 五分山雷達站支援觀測
-  title_en: Wufenshan Radar Station Support Observations
+- when: 2016.01 / 05
+  type: training
+  title: 雷達測試與教育訓練（垂直掃描）
+  title_en: Radar Testing and Training (Vertical Scans)
+  where: 中央大學 雷達車庫
+  where_en: Radar garage, National Central University
+  lat: 24.97
+  lng: 121.19
+
+- when: 2015.08.17 — 10.28
+  type: support
+  title: 五分山雷達站支援觀測（含架站訓練）
+  title_en: Wufenshan Radar Station Support Observations (incl. Setup Training)
   where: 五分山雷達站｜中央氣象局
   where_en: Wufenshan Radar Station | Central Weather Bureau
+  lat: 25.07
+  lng: 121.78
 
-- when: 2015.07 — 08
-  title: 颱風觀測：昌鴻、蘇迪勒颱風
-  title_en: "Typhoon Observations: Chan-hom and Soudelor"
-  where: 苗栗獅潭、中央大學
-  where_en: Shitan, Miaoli; National Central University
+- when: 2015.08.07 — 08.09
+  type: typhoon
+  title: 蘇迪勒颱風觀測
+  title_en: Typhoon Soudelor Observation
+  where: 中央大學
+  where_en: National Central University
+  lat: 24.97
+  lng: 121.19
 
-- when: 2015.05 — 06
-  title: 梅雨鋒面降雨觀測、西南氣流聯合觀測實驗
-  title_en: Mei-Yu Frontal Rainfall Observation; Southwest Monsoon Joint Observation Experiment
-  where: 苗栗銅鑼、高屏溪伏流水模場
-  where_en: Tongluo, Miaoli; Kaoping River
+- when: 2015.07.10
+  type: typhoon
+  title: 昌鴻颱風觀測
+  title_en: Typhoon Chan-hom Observation
+  where: 苗栗 獅潭 仙山｜中央氣象局
+  where_en: Xianshan, Shitan, Miaoli | Central Weather Bureau
+  lat: 24.55
+  lng: 120.95
 
-- when: 2014
-  title: 午後熱對流觀測、雷達測試與教育訓練
-  title_en: Afternoon Thunderstorm Observation; Radar Testing and Training
-  where: 台北美堤河濱公園、中央大學
-  where_en: Meiti Riverside Park, Taipei; National Central University
+- when: 2015.05.31 — 06.18
+  type: monsoon
+  title: 西南氣流聯合觀測實驗
+  title_en: Southwest Monsoon Joint Observation Experiment
+  where: 高屏溪伏流水模場｜台灣颱風洪水研究中心
+  where_en: Kaoping River subsurface-water site | Taiwan Typhoon and Flood Research Institute
+  lat: 22.68
+  lng: 120.43
+
+- when: 2015.05.18 — 05.25
+  type: meiyu
+  title: 梅雨鋒面降雨觀測
+  title_en: Mei-Yu Frontal Rainfall Observation
+  where: 苗栗 銅鑼科學園區｜中央氣象局
+  where_en: Tongluo Science Park, Miaoli | Central Weather Bureau
+  lat: 24.47
+  lng: 120.79
+
+- when: 2015.04.27 — 04.30
+  type: training
+  title: 雷達測試與教育訓練
+  title_en: Radar Testing and Training
+  where: 苗栗 銅鑼科學園區｜中央氣象局
+  where_en: Tongluo Science Park, Miaoli | Central Weather Bureau
+  lat: 24.47
+  lng: 120.79
+
+- when: 2014.08.18 — 08.19
+  type: convection
+  title: 午後熱對流觀測
+  title_en: Afternoon Thunderstorm Observation
+  where: 台北 美堤河濱公園
+  where_en: Meiti Riverside Park, Taipei
+  lat: 25.08
+  lng: 121.56
+
+- when: 2014.07.10
+  type: training
+  title: 雷達測試與教育訓練（地形掃描）
+  title_en: Radar Testing and Training (Terrain Scans)
+  where: 台北 美堤河濱公園
+  where_en: Meiti Riverside Park, Taipei
+  lat: 25.08
+  lng: 121.56
+
+- when: 2014.03.31 / 04.22
+  type: training
+  title: 雷達測試與教育訓練
+  title_en: Radar Testing and Training
+  where: 中央大學 測站、校門口
+  where_en: National Central University
+  lat: 24.97
+  lng: 121.19

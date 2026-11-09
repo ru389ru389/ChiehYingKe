@@ -1,0 +1,38 @@
+# 野外觀測類型：地圖與時間軸使用的圖示、顏色與名稱
+# icon 為 24x24 SVG 內容（線條圖示）
+
+meiyu:
+  zh: 梅雨鋒面
+  en: Mei-Yu Front
+  color: "#0f9b8e"
+  icon: <path d="M2 15h20"/><path d="M5 15l2.5-4.5L10 15" fill="currentColor"/><path d="M14 15a2.5 2.5 0 0 1 5 0" fill="currentColor"/>
+convection:
+  zh: 午後對流
+  en: Afternoon Convection
+  color: "#d98e04"
+  icon: <path d="M7 15a4 4 0 0 1 .5-8 5 5 0 0 1 9.6 1.5A3.3 3.3 0 0 1 17 15"/><path d="M12.5 12l-2 4h3l-2 4"/>
+typhoon:
+  zh: 颱風
+  en: Typhoon
+  color: "#e0573a"
+  icon: <circle cx="12" cy="12" r="2.2"/><path d="M12 9.8C12 5 15 3 19 3c-2 1.5-3 3.5-3 6"/><path d="M12 14.2C12 19 9 21 5 21c2-1.5 3-3.5 3-6"/>
+monsoon:
+  zh: 西南氣流
+  en: Southwest Monsoon
+  color: "#1f6fb2"
+  icon: <path d="M4 20L18 6"/><path d="M10 6h8v8"/><path d="M3 13l5-5M9 21l5-5"/>
+support:
+  zh: 雷達站支援觀測
+  en: Radar Station Support
+  color: "#0b2545"
+  icon: <path d="M5 20h14"/><path d="M12 20v-6"/><path d="M6 10a6 6 0 0 0 12 0z"/><path d="M12 10l4-6"/>
+training:
+  zh: 測試與教育訓練
+  en: Testing & Training
+  color: "#3a9d5d"
+  icon: <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+winter:
+  zh: 冬季降雪
+  en: Winter Snowfall
+  color: "#5b8bd9"
+  icon: <path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9 4l3 2 3-2M9 20l3-2 3 2"/>
