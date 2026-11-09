@@ -2,8 +2,17 @@
 # type 對應 _data/campaign_types.yml（梅雨鋒面、午後對流、颱風、西南氣流、雷達站支援、測試訓練、冬季降雪、豪雨觀測、海洋與海岸、綜合觀測）
 # lat / lng 為地圖座標；country: kr 會畫在韓國地圖，其餘畫在台灣地圖。_en 為英文版文字。
 
+- when: 2026.07.12 — 07.19
+  type: convection
+  title: "2026 嘉南平原對流肇始熱動力實驗（CITEWARM）：施放微型探空氣球"
+  title_en: "2026 Chianan Plain Convection Initiation Thermodynamics Experiment (CITEWARM): Mini-Radiosonde Launches"
+  where: "嘉義氣象站"
+  where_en: "Chiayi Weather Station"
+  lat: 23.50
+  lng: 120.42
+
 - when: 2025.07.17 — 08.06
-  type: integrated
+  type: convection
   title: "2025 嘉義全大氣觀測與模擬實驗（FAOSE）"
   title_en: "2025 Chiayi Full-Atmosphere Observation and Simulation Experiment (FAOSE)"
   where: "嘉義 民雄堤防"
