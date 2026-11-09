@@ -79,6 +79,9 @@ p { margin: 0 0 1em; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .btn.primary:hover { opacity: .9; color: var(--bg); }
 
+.portrait { margin: 0; justify-self: center; width: 100%; max-width: 340px; }
+.portrait img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(15, 30, 50, .12); }
+.portrait figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); text-align: center; }
 .radar { width: 100%; max-width: 320px; justify-self: center; color: var(--accent); }
 .radar .echo ellipse { fill: var(--echo-1); opacity: .55; }
 .radar .echo .core { fill: var(--echo-2); opacity: .85; }
@@ -176,6 +179,7 @@ p { margin: 0 0 1em; }
   .hero { padding: 56px 0; }
   .hero-inner { grid-template-columns: 1fr; gap: 32px; }
   .radar { max-width: 200px; order: -1; justify-self: start; }
+  .portrait { max-width: 260px; order: -1; justify-self: start; }
   .grid-2 { grid-template-columns: 1fr; gap: 24px; }
   .section { padding: 56px 0; }
   .cards, .skills { grid-template-columns: 1fr; }
