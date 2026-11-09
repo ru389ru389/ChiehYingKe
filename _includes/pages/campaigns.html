@@ -131,7 +131,23 @@ var CTYPES = {
     });
     li.addEventListener('mouseleave', function () { document.querySelectorAll('.cpin.pulse').forEach(function (g) { g.classList.remove('pulse'); }); });
   });
-  draw();
-  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(draw, 150); });
+  // 手機／平板：依螢幕可用高度與寬度縮放兩張地圖，讓整個地圖區一次看完、不需捲動
+  function fit() {
+    var panel = document.querySelector('.camp-maps'), stack = document.querySelector('.map-stack');
+    var boxes = stack.querySelectorAll('.map-box');
+    if (window.innerWidth > 900) { boxes.forEach(function (b) { b.style.width = ''; }); return; }
+    var vbT = maps.tw.viewBox.baseVal, vbK = maps.kr.viewBox.baseVal;
+    var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 0.48; // 韓國圖高度為台灣圖的 48%
+    var cs = getComputedStyle(panel);
+    var used = document.querySelector('.camp-legend').offsetHeight + document.querySelector('.map-note').offsetHeight + 14 +
+               parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    var availH = Math.min(window.innerHeight - 88, 620) - used;
+    var availW = stack.clientWidth - 8;
+    var h = Math.max(160, Math.min(availH, availW / (aT + aK * KR)));
+    boxes[0].style.width = (h * aT).toFixed(1) + 'px';
+    boxes[1].style.width = (h * KR * aK).toFixed(1) + 'px';
+  }
+  fit(); draw();
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { fit(); draw(); }, 150); });
 })();
 </script>
