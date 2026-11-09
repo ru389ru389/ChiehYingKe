@@ -107,7 +107,8 @@
       groups[key] = groups[key] || {}; (groups[key][c.type] = groups[key][c.type] || []).push(c);
     });
     Object.keys(groups).forEach(function (key) {
-      var svg = key.split('|')[0] === 'kr' ? kr : tw, types = Object.keys(groups[key]), R = 8.5 * upx(svg);
+      var svg = key.split('|')[0] === 'kr' ? kr : tw, types = Object.keys(groups[key]);
+      var R = (tw.getBoundingClientRect().width < 260 ? 6.5 : 8.5) * upx(svg); // 手機小地圖用較小圖示
       types.forEach(function (t, j) {
         var list = groups[key][t], ty = CT[t], p = lin(svg, list[0].lat, list[0].lng);
         var g = document.createElementNS(NS, 'g');

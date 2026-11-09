@@ -465,7 +465,7 @@ p { margin: 0 0 1em; }
   .hmap-head { padding: 2px 4px 0; }
   .hmap-head h3 { font-size: 17px; }
   .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
-  .hmap-card.c-green .hmap-fig { max-width: 320px; }
+  .hmap-card.c-green .hmap-fig { width: 67%; max-width: 214px; } /* 手機：台灣圖約為原本的 2/3 */
   .container { padding: 0 16px; }
   .nav-mobile { display: flex; }
   .menu-btn { display: block; }
