@@ -436,6 +436,7 @@ p { margin: 0 0 1em; }
    ========================================================= */
 @media (max-width: 900px) {
   .home-maps-grid { grid-template-columns: 1fr; }
+  .hmap-card.c-green .hmap-fig { width: 67%; max-width: 214px; margin: 0 auto; } /* 手機／平板：首頁台灣圖縮為約 2/3 */
   .country-chips { margin-left: 0; }
   .recent-confs li { grid-template-columns: 40px 1fr; }
   .recent-confs li small { grid-column: 2; white-space: normal; }
@@ -465,7 +466,6 @@ p { margin: 0 0 1em; }
   .hmap-head { padding: 2px 4px 0; }
   .hmap-head h3 { font-size: 17px; }
   .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
-  .hmap-card.c-green .hmap-fig { width: 67%; max-width: 214px; } /* 手機：台灣圖約為原本的 2/3 */
   .container { padding: 0 16px; }
   .nav-mobile { display: flex; }
   .menu-btn { display: block; }
