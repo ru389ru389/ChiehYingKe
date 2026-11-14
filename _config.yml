@@ -20,3 +20,4 @@ nav:
   - { title: 著作發表, title_en: Publications, url: /publications/, color: amber }
   - { title: 研討會, title_en: Conferences, url: /conferences/, color: coral }
   - { title: 野外觀測, title_en: Field Campaigns, url: /campaigns/, color: green }
+  - { title: 相關連結, title_en: Links, url: /links/, color: navy }

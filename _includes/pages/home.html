@@ -54,14 +54,14 @@
   {% capture d_pubs %}Journal papers, book chapter and thesis{% endcapture %}
   {% capture d_conf %}AMS Radar Conference, ERAD, AOGS and more{% endcapture %}
   {% capture d_camp %}TEAM-R mobile radar: TAHOPE, YESRain, TASSE, ICE-POP and more{% endcapture %}
-  {% capture d_contact %}Contact{% endcapture %}
+  {% capture d_contact %}Laboratory, department and personal links{% endcapture %}
 {% else %}
   {% capture d_about %}個人簡介、學歷、技術工具與聯絡方式{% endcapture %}
   {% capture d_research %}雷達觀測、風場反演、資料同化、系集模擬{% endcapture %}
   {% capture d_pubs %}期刊論文、專書章節與學位論文{% endcapture %}
   {% capture d_conf %}AMS 雷達氣象、ERAD、AOGS 等國內外發表{% endcapture %}
   {% capture d_camp %}TEAM-R 移動式雷達：TAHOPE、YESRain、TASSE、ICE-POP 等{% endcapture %}
-  {% capture d_contact %}聯絡我{% endcapture %}
+  {% capture d_contact %}實驗室、系所與個人相關連結{% endcapture %}
 {% endif %}
 
 <section class="section">
@@ -88,9 +88,9 @@
         <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M3 20l6-11 4 7 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></span>
         <h3>{% if lang == 'en' %}{{ site.nav[5].title_en }}{% else %}{{ site.nav[5].title }}{% endif %}</h3><p>{{ d_camp }}</p><span class="go">{{ L.enter }}</span>
       </a>
-      <a class="tile c-navy" href="mailto:{{ site.email }}">
-        <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-        <h3>{{ d_contact }}</h3><p>{{ site.email }}</p><span class="go">{{ L.send }}</span>
+      <a class="tile c-navy" href="{{ prefix | append: '/links/' | relative_url }}">
+        <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+        <h3>{% if lang == 'en' %}{{ site.nav[6].title_en }}{% else %}{{ site.nav[6].title }}{% endif %}</h3><p>{{ d_contact }}</p><span class="go">{{ L.enter }}</span>
       </a>
     </div>
   </div>

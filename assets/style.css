@@ -417,6 +417,22 @@ p { margin: 0 0 1em; }
 .cpin.dim { opacity: .2; }
 .map-note { margin: 10px 0 0; font-size: 12px; color: var(--muted); text-align: center; }
 
+/* Links page */
+.links-wrap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: start; }
+.link-group h2 { color: var(--text); }
+.link-group h2::after { background: var(--c); }
+.link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.link-list a {
+  display: grid; gap: 2px; padding: 16px 20px; border-radius: 12px; color: var(--text);
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--c);
+  transition: transform .15s, box-shadow .15s;
+}
+.link-list a:hover { text-decoration: none; transform: translateX(3px); box-shadow: 0 8px 22px color-mix(in srgb, var(--c) 18%, transparent); }
+.link-title { font-weight: 700; }
+.link-title::after { content: " ↗"; color: var(--c); font-weight: 600; }
+.link-desc { font-size: 14px; color: var(--muted); }
+.link-url { font-size: 13px; color: var(--c); overflow-wrap: anywhere; }
+
 /* Pager */
 .pager { padding: 40px 0 56px; border-top: 1px solid var(--line); background: var(--bg-alt); }
 .pager-title { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
@@ -434,7 +450,15 @@ p { margin: 0 0 1em; }
 /* =========================================================
    Responsive
    ========================================================= */
+/* 中等寬度（平板）：導覽列縮小間距，避免英文版超出畫面 */
+@media (max-width: 1060px) {
+  .nav .menu { gap: 2px; }
+  .nav .menu a { padding: 6px 9px; font-size: 14px; }
+  .nav .menu a.lang-switch { margin-left: 4px; padding: 5px 11px; }
+  .brand { font-size: 16px; }
+}
 @media (max-width: 900px) {
+  .links-wrap { grid-template-columns: 1fr; }
   /* 平板直向（761–900px）：首頁兩張地圖維持左右並排 */
   .home-maps-grid { grid-template-columns: 1.7fr 1fr; gap: 14px; }
   .hmap-card { padding: 14px; }

@@ -21,6 +21,7 @@ Live site: https://ru389ru389.github.io/ChiehYingKe/
 | `_data/campaigns.yml` | 野外觀測（含 type 類型與 lat/lng 座標，會標在右側地圖） |
 | `_data/campaign_types.yml` | 野外觀測類型的圖示、顏色與名稱 |
 | `_data/research.yml` | 研究專長（中英文） |
+| `_data/links.yml` | 相關連結頁的連結（中英文） |
 | `_data/i18n.yml` | 介面文字（中英文） |
 | `_layouts/default.html` | 共用的導覽列、語言切換、頁首與頁尾 |
 | `_config.yml` | 網站名稱、Email、導覽列項目與顏色 |

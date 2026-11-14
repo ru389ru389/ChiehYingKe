@@ -1,0 +1,21 @@
+{% include lang-setup.html %}
+<section class="section">
+  <div class="container links-wrap">
+    {% for g in site.data.links %}
+    <div class="link-group c-{{ g.color }}">
+      <h2>{% if lang == 'en' %}{{ g.group_en }}{% else %}{{ g.group }}{% endif %}</h2>
+      <ul class="link-list">
+        {% for it in g.items %}
+        <li>
+          <a href="{{ it.url }}"{% unless it.url contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %}>
+            <span class="link-title">{% if lang == 'en' %}{{ it.title_en }}{% else %}{{ it.title }}{% endif %}</span>
+            {% if it.desc %}<span class="link-desc">{% if lang == 'en' %}{{ it.desc_en }}{% else %}{{ it.desc }}{% endif %}</span>{% endif %}
+            <span class="link-url">{{ it.url | remove: 'mailto:' | remove: 'https://' | remove: 'http://' }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>

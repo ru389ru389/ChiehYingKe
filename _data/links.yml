@@ -1,0 +1,30 @@
+# 相關連結頁（中 / 英）。新增連結：在對應分類的 items 加一筆。
+- group: 學術單位
+  group_en: Affiliations
+  color: blue
+  items:
+    - title: 國立中央大學 雷達氣象實驗室
+      title_en: Radar Meteorology Laboratory, NCU
+      desc: TEAM-R 移動式雷達、NCU C-POL 雷達與雷達資料同化研究
+      desc_en: TEAM-R mobile radar, NCU C-POL radar and radar data assimilation research
+      url: https://radar.atm.ncu.edu.tw/
+    - title: 國立中央大學 大氣科學學系
+      title_en: Department of Atmospheric Sciences, NCU
+      url: https://www.atm.ncu.edu.tw/
+    - title: 國立中央大學
+      title_en: National Central University
+      url: https://www.ncu.edu.tw/
+
+- group: 個人
+  group_en: Personal
+  color: teal
+  items:
+    - title: Email
+      title_en: Email
+      url: mailto:cyke812@g.ncu.edu.tw
+    - title: 舊版個人網站（Google Sites）
+      title_en: Previous website (Google Sites)
+      url: https://sites.google.com/g.ncu.edu.tw/chiehying/about-me
+    - title: 本網站原始碼（GitHub）
+      title_en: Source code of this site (GitHub)
+      url: https://github.com/ru389ru389/ChiehYingKe
