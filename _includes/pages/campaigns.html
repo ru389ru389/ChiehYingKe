@@ -140,6 +140,11 @@ var CTYPES = {
   // 依螢幕計算地圖大小：台灣地圖在左，韓國地圖（高度約為台灣的 1/3）與圖例在右
   //  電腦／平板橫向：地圖區在右側欄；平板直向：地圖區與螢幕同寬、高度約為畫面 45%；
   //  手機：整個地圖區縮放到一個畫面內
+  function stableHeight() { // 不受網址列影響的畫面高度（取較小值）
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    return Math.min(h, window.innerHeight);
+  }
+  var stableH = stableHeight(), lastW = window.innerWidth;
   function fit() {
     var panel = document.querySelector('.camp-maps');
     var boxT = document.querySelector('.map-box:not(.korea)'), boxK = document.querySelector('.map-box.korea');
@@ -147,7 +152,7 @@ var CTYPES = {
     var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 1 / 3;
     var cs = getComputedStyle(panel);
     var W = panel.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    var gap = parseFloat(cs.columnGap) || 10, vw = window.innerWidth, vh = window.innerHeight;
+    var gap = parseFloat(cs.columnGap) || 10, vw = window.innerWidth, vh = stableH; // 用固定高度，避免網址列收放造成跳動
     var h, landPhone = window.matchMedia('(orientation: landscape) and (max-height: 500px)').matches;
     if (landPhone) h = Math.min(vh - 100, (W * 0.5) / aT);           // 手機橫向：側欄，高度配合畫面
     else if (vw > 900) h = (W * 0.56) / aT;                           // 側欄
@@ -176,6 +181,10 @@ var CTYPES = {
     }
   }
   fit(); draw();
-  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { fit(); draw(); }, 150); });
+  // 手機上下滑時網址列會收放、改變畫面高度；只有寬度改變（如轉向）時才重新計算，地圖就不會跳動
+  var rt; window.addEventListener('resize', function () {
+    if (window.innerWidth === lastW) return;
+    clearTimeout(rt); rt = setTimeout(function () { lastW = window.innerWidth; stableH = stableHeight(); fit(); draw(); }, 150);
+  });
 })();
 </script>

@@ -597,3 +597,23 @@ p { margin: 0 0 1em; }
   .camp-list li.year-sep span { margin-left: -6px; }
   .camp-when { text-align: left; padding-top: 0; }
 }
+
+/* 手機與平板直向：野外觀測區為一個畫面高的獨立區塊——
+   上方地圖固定，下方時間軸在自己的區塊內捲動，文字不會穿過地圖後方 */
+@media (max-width: 900px) and (orientation: portrait) {
+  .camp-layout {
+    display: flex; flex-direction: column; gap: 0;
+    height: calc(100vh - 64px); height: calc(100svh - 64px);
+  }
+  .camp-maps { position: relative; top: auto; flex: none; z-index: 2; }
+  .camp-list {
+    flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding: 16px 2px 24px 8px; overscroll-behavior-y: auto;
+  }
+  /* 捲動區內改用每筆項目畫時間軸線 */
+  .camp-list::before { display: none; }
+  .camp-list li {
+    background: linear-gradient(color-mix(in srgb, var(--green) 30%, transparent), color-mix(in srgb, var(--green) 30%, transparent)) 6px 0 / 2px 100% no-repeat;
+  }
+  .camp-list li.year-sep { background: none; }
+}
