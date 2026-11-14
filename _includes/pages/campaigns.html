@@ -149,22 +149,30 @@ var CTYPES = {
     var W = panel.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     var gap = parseFloat(cs.columnGap) || 10, vw = window.innerWidth, vh = window.innerHeight;
     var h, landPhone = window.matchMedia('(orientation: landscape) and (max-height: 500px)').matches;
-    if (landPhone) h = Math.min(vh - 40, (W * 0.42) / aT);            // 手機橫向：台灣地圖放大
+    if (landPhone) h = Math.min(vh - 100, (W * 0.5) / aT);           // 手機橫向：側欄，高度配合畫面
     else if (vw > 900) h = (W * 0.56) / aT;                           // 側欄
     else if (vw > 560) h = Math.min(vh * 0.44, (W * 0.5) / aT);       // 平板直向
     else h = Math.min(vh * 0.40, (W * 0.52) / aT);                    // 手機直向（右側留給圖例）
     function apply(hh) {
-      var tw = hh * aT, kw = landPhone ? hh * KR * aK : Math.min(hh * KR * aK, W - tw - gap);
+      var tw = hh * aT, kw = Math.min(hh * KR * aK, W - tw - gap);
       boxT.style.width = tw.toFixed(1) + 'px';
       boxK.style.width = Math.max(60, kw).toFixed(1) + 'px';
     }
     apply(h);
-    if (vw <= 560 && !landPhone) { // 手機直向：地圖區固定在上方，高度控制在畫面約 45%
+    if ((vw <= 560 && !landPhone) || landPhone) { // 手機：直向約佔畫面 45%；橫向整塊放進畫面
       for (var i = 0; i < 4; i++) {
-        var limit = vh * 0.45, ph = panel.getBoundingClientRect().height;
+        var limit = landPhone ? vh - 80 : vh * 0.45, ph = panel.getBoundingClientRect().height;
         if (ph <= limit) break;
         h = Math.max(130, h * limit / ph); apply(h);
       }
+    }
+    // 若右側（韓國＋圖例）比台灣地圖高，把台灣地圖放大到同高（不會讓地圖區變高）
+    var rightH = document.querySelector('.camp-legend').getBoundingClientRect().bottom - boxK.getBoundingClientRect().top;
+    var curH = boxT.getBoundingClientRect().height;
+    if (vw <= 560 && !landPhone && rightH > curH + 4) { // 只在手機直向
+      var maxByWidth = (W - gap - 120) / aT; // 右側至少保留 120px 給圖例
+      var nh = Math.min(rightH, maxByWidth);
+      if (nh > curH) apply(nh);
     }
   }
   fit(); draw();
