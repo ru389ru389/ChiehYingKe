@@ -159,7 +159,8 @@ var CTYPES = {
     else if (vw > 560) h = Math.min(vh * 0.44, (W * 0.5) / aT);       // 平板直向
     else h = Math.min(vh * 0.40, (W * 0.52) / aT);                    // 手機直向（右側留給圖例）
     function apply(hh) {
-      var tw = hh * aT, kw = Math.min(hh * KR * aK, W - tw - gap);
+      var tw = hh * aT, tabletP = vw > 560 && vw <= 900 && !landPhone;
+      var kw = tabletP ? hh * KR * aK : Math.min(hh * KR * aK, W - tw - gap); // 平板直向：韓國與圖例並排在台灣右側
       boxT.style.width = tw.toFixed(1) + 'px';
       boxK.style.width = Math.max(60, kw).toFixed(1) + 'px';
     }

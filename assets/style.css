@@ -537,6 +537,12 @@ p { margin: 0 0 1em; }
     order: -1; top: 64px; padding: 12px 24px; margin: 0 -24px;
     border-radius: 0; border-width: 0 0 1px; box-shadow: 0 6px 14px rgba(0,0,0,.08);
   }
+  /* 平板直向：圖例放在韓國地圖右邊 → 台灣｜韓國｜圖例 */
+  .camp-maps {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-areas: "tw kr lg" "note note note";
+    grid-template-rows: auto auto;
+  }
   .legend-item { font-size: 12px; padding: 2px 8px 2px 6px; gap: 4px; }
   .legend-item svg { width: 14px; height: 14px; }
   .map-note { font-size: 11px; }
@@ -612,9 +618,9 @@ p { margin: 0 0 1em; }
   .camp-when { text-align: left; padding-top: 0; }
 }
 
-/* 手機與平板直向：野外觀測區為一個畫面高的獨立區塊——
+/* 手機直向：野外觀測區為一個畫面高的獨立區塊——
    上方地圖固定，下方時間軸在自己的區塊內捲動，文字不會穿過地圖後方 */
-@media (max-width: 900px) and (orientation: portrait) {
+@media (max-width: 560px) and (orientation: portrait) {
   .camp-layout {
     display: flex; flex-direction: column; gap: 0;
     height: calc(100vh - 64px); height: calc(100svh - 64px);
