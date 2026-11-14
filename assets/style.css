@@ -537,12 +537,15 @@ p { margin: 0 0 1em; }
     order: -1; top: 64px; padding: 12px 24px; margin: 0 -24px;
     border-radius: 0; border-width: 0 0 1px; box-shadow: 0 6px 14px rgba(0,0,0,.08);
   }
-  /* 平板直向：圖例放在韓國地圖右邊 → 台灣｜韓國｜圖例 */
+  /* 平板直向：台灣在左；韓國與圖例（直排）在右；整組置中，左右高度相近 */
   .camp-maps {
-    grid-template-columns: auto auto minmax(0, 1fr);
-    grid-template-areas: "tw kr lg" "note note note";
-    grid-template-rows: auto auto;
+    grid-template-columns: auto auto; justify-content: center; column-gap: 28px;
+    grid-template-areas: "tw kr" "tw lg" "note note";
+    grid-template-rows: auto 1fr auto;
   }
+  .camp-maps .camp-legend { flex-direction: column; align-items: flex-start; gap: 7px; }
+  .camp-maps .legend-item { font-size: 13px; padding: 3px 10px 3px 7px; gap: 5px; }
+  .camp-maps .legend-item svg { width: 15px; height: 15px; }
   .legend-item { font-size: 12px; padding: 2px 8px 2px 6px; gap: 4px; }
   .legend-item svg { width: 14px; height: 14px; }
   .map-note { font-size: 11px; }
@@ -608,8 +611,10 @@ p { margin: 0 0 1em; }
     grid-template-rows: auto 1fr;
   }
   .camp-maps .map-note { display: none; }
-  .legend-item { font-size: 10.5px; padding: 1px 6px 1px 4px; gap: 3px; }
-  .legend-item svg { width: 12px; height: 12px; }
+  .camp-maps { justify-content: stretch; column-gap: 12px; }
+  .camp-maps .camp-legend { flex-direction: row; align-items: flex-start; gap: 4px; }
+  .camp-maps .legend-item { font-size: 10.5px; padding: 1px 6px 1px 4px; gap: 3px; }
+  .camp-maps .legend-item svg { width: 12px; height: 12px; }
   .camp-list::before { left: 6px; }
   .camp-list li { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-left: 30px; }
   .camp-list li::before { left: 0; top: 14px; }
@@ -618,22 +623,3 @@ p { margin: 0 0 1em; }
   .camp-when { text-align: left; padding-top: 0; }
 }
 
-/* 手機直向：野外觀測區為一個畫面高的獨立區塊——
-   上方地圖固定，下方時間軸在自己的區塊內捲動，文字不會穿過地圖後方 */
-@media (max-width: 560px) and (orientation: portrait) {
-  .camp-layout {
-    display: flex; flex-direction: column; gap: 0;
-    height: calc(100vh - 64px); height: calc(100svh - 64px);
-  }
-  .camp-maps { position: relative; top: auto; flex: none; z-index: 2; }
-  .camp-list {
-    flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
-    padding: 16px 2px 24px 8px; overscroll-behavior-y: auto;
-  }
-  /* 捲動區內改用每筆項目畫時間軸線 */
-  .camp-list::before { display: none; }
-  .camp-list li {
-    background: linear-gradient(color-mix(in srgb, var(--green) 30%, transparent), color-mix(in srgb, var(--green) 30%, transparent)) 6px 0 / 2px 100% no-repeat;
-  }
-  .camp-list li.year-sep { background: none; }
-}
