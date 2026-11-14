@@ -549,9 +549,11 @@ p { margin: 0 0 1em; }
 @media (max-width: 560px) {
   /* 手機：地圖在時間軸上方，整塊縮放到一個畫面 */
   .camp-layout { grid-template-columns: 1fr; gap: 24px; }
-  .camp-maps { position: static; order: -1; padding: 10px; gap: 8px 8px; }
+  /* 手機直向：地圖區固定在畫面上方，下滑時持續可見 */
+  .camp-maps { position: sticky; top: 68px; order: -1; padding: 8px; gap: 6px 8px; box-shadow: 0 8px 20px rgba(0,0,0,.10); }
+  .camp-maps .map-note { display: none; }
   .camp-legend { gap: 4px; }
-  .legend-item { font-size: 10.5px; padding: 2px 6px 2px 4px; gap: 3px; line-height: 1.3; }
+  .legend-item { font-size: 10.5px; padding: 1px 6px 1px 4px; gap: 3px; line-height: 1.3; }
   .lang-en .legend-item { white-space: normal; }
   .legend-item svg { width: 12px; height: 12px; flex: none; }
   .map-note { font-size: 11px; }
@@ -562,4 +564,24 @@ p { margin: 0 0 1em; }
   .hmap-head { padding: 2px 4px 0; }
   .hmap-head h3 { font-size: 17px; }
   .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
+}
+
+/* 手機橫向：地圖區不固定；台灣地圖放大，排成「台灣｜韓國｜圖例」 */
+@media (orientation: landscape) and (max-height: 500px) {
+  .camp-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .camp-maps {
+    position: static; order: -1; box-shadow: none; padding: 12px;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-areas: "tw kr lg" "note note note";
+    grid-template-rows: auto auto;
+  }
+  .camp-maps .map-note { display: block; }
+  .camp-legend { align-self: start; }
+  .legend-item { white-space: nowrap; }
+  .camp-list::before { left: 6px; }
+  .camp-list li { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-left: 30px; }
+  .camp-list li::before { left: 0; top: 14px; }
+  .camp-list li.year-sep { padding-left: 0; }
+  .camp-list li.year-sep span { margin-left: -6px; }
+  .camp-when { text-align: left; padding-top: 0; }
 }
