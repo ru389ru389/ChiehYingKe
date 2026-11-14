@@ -137,21 +137,34 @@ var CTYPES = {
     });
     li.addEventListener('mouseleave', function () { document.querySelectorAll('.cpin.pulse').forEach(function (g) { g.classList.remove('pulse'); }); });
   });
-  // 手機：依螢幕可用高度與寬度縮放兩張地圖，讓整個地圖區一次看完、不需捲動
+  // 依螢幕計算地圖大小：台灣地圖在左，韓國地圖（高度約為台灣的 1/3）與圖例在右
+  //  電腦／平板橫向：地圖區在右側欄；平板直向：地圖區與螢幕同寬、高度約為畫面 45%；
+  //  手機：整個地圖區縮放到一個畫面內
   function fit() {
-    var panel = document.querySelector('.camp-maps'), stack = document.querySelector('.map-stack');
-    var boxes = stack.querySelectorAll('.map-box');
-    if (window.innerWidth > 560) { boxes.forEach(function (b) { b.style.width = ''; }); return; } // 平板／電腦交給 CSS 排版
+    var panel = document.querySelector('.camp-maps');
+    var boxT = document.querySelector('.map-box:not(.korea)'), boxK = document.querySelector('.map-box.korea');
     var vbT = maps.tw.viewBox.baseVal, vbK = maps.kr.viewBox.baseVal;
-    var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 1 / 3; // 韓國圖高度為台灣圖的三分之一
+    var aT = vbT.width / vbT.height, aK = vbK.width / vbK.height, KR = 1 / 3;
     var cs = getComputedStyle(panel);
-    var used = document.querySelector('.camp-legend').offsetHeight + document.querySelector('.map-note').offsetHeight + 14 +
-               parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-    var availH = Math.min(window.innerHeight - 88, 620) - used;
-    var availW = stack.clientWidth - 8;
-    var h = Math.max(160, Math.min(availH, availW / (aT + aK * KR)));
-    boxes[0].style.width = (h * aT).toFixed(1) + 'px';
-    boxes[1].style.width = (h * KR * aK).toFixed(1) + 'px';
+    var W = panel.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var gap = parseFloat(cs.columnGap) || 10, vw = window.innerWidth, vh = window.innerHeight;
+    var h;
+    if (vw > 900) h = (W * 0.56) / aT;                                // 側欄
+    else if (vw > 560) h = Math.min(vh * 0.44, (W * 0.5) / aT);       // 平板直向
+    else h = Math.min(vh - 150, (W * 0.52) / aT);                     // 手機（右側留給圖例）
+    function apply(hh) {
+      var tw = hh * aT, kw = Math.min(hh * KR * aK, W - tw - gap);
+      boxT.style.width = tw.toFixed(1) + 'px';
+      boxK.style.width = Math.max(60, kw).toFixed(1) + 'px';
+    }
+    apply(h);
+    if (vw <= 560) { // 手機：若整塊超過一個畫面，再縮小
+      for (var i = 0; i < 4; i++) {
+        var limit = vh - 80, ph = panel.getBoundingClientRect().height;
+        if (ph <= limit) break;
+        h = Math.max(150, h * limit / ph); apply(h);
+      }
+    }
   }
   fit(); draw();
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { fit(); draw(); }, 150); });
