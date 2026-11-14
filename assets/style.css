@@ -435,8 +435,9 @@ p { margin: 0 0 1em; }
    Responsive
    ========================================================= */
 @media (max-width: 900px) {
-  .home-maps-grid { grid-template-columns: 1fr; }
-  .hmap-card.c-green .hmap-fig { width: 67%; max-width: 214px; margin: 0 auto; } /* 手機／平板：首頁台灣圖縮為約 2/3 */
+  /* 平板直向（761–900px）：首頁兩張地圖維持左右並排 */
+  .home-maps-grid { grid-template-columns: 1.7fr 1fr; gap: 14px; }
+  .hmap-card { padding: 14px; }
   .country-chips { margin-left: 0; }
   .recent-confs li { grid-template-columns: 40px 1fr; }
   .recent-confs li small { grid-column: 2; white-space: normal; }
@@ -459,13 +460,10 @@ p { margin: 0 0 1em; }
   .two-col { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 760px) {
-  /* 首頁地圖：手機只顯示地圖本身 */
-  .home-maps { padding-top: 28px; }
-  .home-maps-grid { gap: 14px; }
-  .hmap-card { padding: 12px; gap: 8px; }
-  .hmap-head { padding: 2px 4px 0; }
-  .hmap-head h3 { font-size: 17px; }
-  .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
+  /* 小平板直向：首頁地圖仍並排，縮小間距 */
+  .home-maps-grid { grid-template-columns: 1.6fr 1fr; gap: 12px; }
+  .hmap-card { padding: 12px; }
+  .hmap-foot { font-size: 12px; }
   .container { padding: 0 16px; }
   .nav-mobile { display: flex; }
   .menu-btn { display: block; }
@@ -502,4 +500,15 @@ p { margin: 0 0 1em; }
   .camp-list li.year-sep { padding-left: 0; }
   .camp-list li.year-sep span { margin-left: -6px; }
   .camp-when { text-align: left; padding-top: 0; }
+}
+
+/* 手機（560px 以下）：首頁地圖上下排列，只顯示標題與地圖；平板直向仍並排 */
+@media (max-width: 560px) {
+  .home-maps { padding-top: 28px; }
+  .home-maps-grid { grid-template-columns: 1fr; gap: 14px; } /* 手機：上下排列 */
+  .hmap-card.c-green .hmap-fig { width: 67%; max-width: 214px; margin: 0 auto; } /* 手機：首頁台灣圖縮為約 2/3 */
+  .hmap-card { padding: 12px; gap: 8px; }
+  .hmap-head { padding: 2px 4px 0; }
+  .hmap-head h3 { font-size: 17px; }
+  .hmap-foot, .recent-confs, .hmap-card .go { display: none; }
 }
