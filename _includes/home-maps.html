@@ -89,7 +89,7 @@
     if (twList.length) circle(world, eq(world, 23.7, 121), 4 * uw, 'pin tw-mark', (COUNTRIES.TW || 'Taiwan') + ' · ' + twList.length + ' ' + TALKS);
     var keys = Object.keys(countries).sort(function (a, b) { return countries[b] - countries[a]; });
     document.getElementById('conf-stat').textContent = TOTAL_CONFS + ' ' + TALKS + ' · ' + keys.length + ' ' + NCOUNTRY;
-    document.getElementById('conf-countries').innerHTML = keys.map(function (k) { return '<span>' + (COUNTRIES[k] || k) + ' <b>' + countries[k] + '</b></span>'; }).join('');
+    document.getElementById('conf-countries').innerHTML = keys.map(function (k) { return '<span data-c="' + k + '">' + (COUNTRIES[k] || k) + ' <b>' + countries[k] + '</b></span>'; }).join('');
   }
 
   function drawCamp() {
