@@ -22,9 +22,29 @@
     - title: Email
       title_en: Email
       url: mailto:cyke812@g.ncu.edu.tw
-    - title: 舊版個人網站（Google Sites）
-      title_en: Previous website (Google Sites)
-      url: https://sites.google.com/g.ncu.edu.tw/chiehying/about-me
-    - title: 本網站原始碼（GitHub）
-      title_en: Source code of this site (GitHub)
-      url: https://github.com/ru389ru389/ChiehYingKe
+
+- group: 野外實驗官網
+  group_en: Field Campaign Websites
+  color: green
+  items:
+    - title: TAHOPE 臺灣區域豪雨觀測與預報實驗（計畫辦公室）
+      title_en: TAHOPE — Taiwan-Area Heavy Rain Observation and Prediction Experiment (Project Office)
+      desc: 2022 年密集觀測期（5/25–8/10）
+      desc_en: Intensive observation period, 25 May – 10 August 2022
+      url: https://rain.as.ntu.edu.tw/TAHOPE/TAHOPE-home.html
+    - title: TAHOPE 野外實驗資料目錄
+      title_en: TAHOPE Field Catalog
+      url: https://exp.pccu.edu.tw/TAHOPE/
+    - title: 野外觀測實驗目錄（Field Program Catalogs）
+      title_en: Field Program Catalogs
+      desc: 收錄 CITE-WARM 2026 等台灣野外觀測實驗
+      desc_en: Catalog of Taiwan field experiments, including CITE-WARM 2026
+      url: https://exp.pccu.edu.tw/
+    - title: TEAM-R 移動式雷達：現況與過往計畫
+      title_en: TEAM-R Mobile Radar — Status and Programs
+      desc: 中央大學雷達氣象實驗室 TEAM-R 參與的觀測計畫
+      desc_en: Field programs supported by the NCU TEAM-R mobile radar
+      url: https://radar.atm.ncu.edu.tw/team-r-affairs/team-r-status-and-programs
+    - title: ICE-POP 2018 平昌冬奧觀測實驗（NASA 計畫頁面）
+      title_en: ICE-POP 2018 PyeongChang Winter Olympics Campaign (NASA page)
+      url: https://science.nasa.gov/science-org-term/eo-field-campaigns-international-collaborative-experiments-for-pyeongchang-2018-olympic-and-paralympic-winter-games-ice-pop

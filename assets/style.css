@@ -419,6 +419,8 @@ p { margin: 0 0 1em; }
 
 /* Links page */
 .links-wrap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: start; }
+.link-group.c-green { grid-column: 1 / -1; }
+.link-group.c-green .link-list { grid-template-columns: repeat(2, 1fr); }
 .link-group h2 { color: var(--text); }
 .link-group h2::after { background: var(--c); }
 .link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
@@ -459,6 +461,7 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 900px) {
   .links-wrap { grid-template-columns: 1fr; }
+  .link-group.c-green .link-list { grid-template-columns: 1fr; }
   /* 平板直向（761–900px）：首頁兩張地圖維持左右並排 */
   .home-maps-grid { grid-template-columns: 1.7fr 1fr; gap: 14px; }
   .hmap-card { padding: 14px; }
