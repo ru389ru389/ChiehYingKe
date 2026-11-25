@@ -15,13 +15,39 @@
       title_en: National Central University
       url: https://www.ncu.edu.tw/
 
-- group: 個人
-  group_en: Personal
+- group: 個人與學術檔案
+  group_en: Personal & Academic Profiles
   color: teal
   items:
+    - title: 履歷 CV（PDF）
+      title_en: Curriculum Vitae (PDF)
+      desc: 英文版學術履歷，可下載
+      desc_en: Academic CV, downloadable
+      url: https://ru389ru389.github.io/ChiehYingKe/assets/cv/Chieh-Ying_Ke_CV.pdf
     - title: Email
       title_en: Email
       url: mailto:cyke812@g.ncu.edu.tw
+    - title: Google Scholar
+      title_en: Google Scholar
+      desc: 論文列表與引用次數
+      desc_en: Publications and citations
+      url: https://scholar.google.com/citations?user=pxloPuUAAAAJ
+    - title: ORCID
+      title_en: ORCID
+      desc: 0000-0001-8232-6407
+      desc_en: 0000-0001-8232-6407
+      url: https://orcid.org/0000-0001-8232-6407
+    - title: ResearchGate
+      title_en: ResearchGate
+      url: https://www.researchgate.net/profile/Chieh-Ying-Ke
+    - title: Web of Science ResearcherID
+      title_en: Web of Science ResearcherID
+      desc: AAA-3895-2021
+      desc_en: AAA-3895-2021
+      url: https://www.webofscience.com/wos/author/record/AAA-3895-2021
+    - title: SSRN 作者頁
+      title_en: SSRN Author Page
+      url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=6529005
 
 - group: 野外實驗官網
   group_en: Field Campaign Websites

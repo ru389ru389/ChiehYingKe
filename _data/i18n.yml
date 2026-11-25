@@ -9,6 +9,7 @@ zh:
   send: 寄信 →
   email_btn: Email 聯絡
   pubs_btn: 著作發表
+  cv_btn: 下載 CV
   explore: 探索網站
   stat_journal: 期刊論文
   stat_conf: 研討會發表
@@ -48,6 +49,7 @@ en:
   send: Email →
   email_btn: Email me
   pubs_btn: Publications
+  cv_btn: Download CV
   explore: Explore
   stat_journal: Journal papers
   stat_conf: Conference talks

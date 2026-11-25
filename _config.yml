@@ -9,6 +9,7 @@ github: ru389ru389
 
 markdown: kramdown
 exclude:
+  - tools
   - README.md
 
 # 導覽列：依序顯示；color 為各分頁主題色（定義於 assets/style.css）

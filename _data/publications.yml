@@ -7,6 +7,15 @@
 
 - type: journal
   year: 2026
+  topics: [ensemble, retrieval]
+  title: Ensemble Sensitivity Analysis and k-Means Clustering of Intense Coastal Rainfall Dynamics during TAHOPE-IOP3
+  # TODO 作者順序待確認（Springer 頁面列 Yang, Chung, Tsai；ResearchGate 另列 Ke）
+  authors: Yang, S.-K., <b>C.-Y. Ke</b>, K.-S. Chung, and C.-C. Tsai
+  venue: <em>Terrestrial, Atmospheric and Oceanic Sciences</em>, 37(1).
+  doi: 10.1007/s44195-026-00144-x
+
+- type: journal
+  year: 2026
   topics: [da]
   title: Evaluating the Impact of Temperature Data Assimilation on the Microphysical Evolution of Convective Precipitation Systems
   authors: <b>Ke, C.-Y.</b>, and K.-S. Chung
