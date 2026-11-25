@@ -19,7 +19,12 @@
   group_en: Personal & Academic Profiles
   color: teal
   items:
-    - title: 履歷 CV（PDF）
+    - title: 中文履歷（PDF）
+      title_en: CV in Chinese (PDF)
+      desc: 中文版學術履歷，可下載
+      desc_en: Academic CV in Traditional Chinese
+      url: https://ru389ru389.github.io/ChiehYingKe/assets/cv/Chieh-Ying_Ke_CV_zh.pdf
+    - title: 英文履歷 CV（PDF）
       title_en: Curriculum Vitae (PDF)
       desc: 英文版學術履歷，可下載
       desc_en: Academic CV, downloadable

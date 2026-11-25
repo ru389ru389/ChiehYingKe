@@ -34,11 +34,11 @@ Live site: https://ru389ru389.github.io/ChiehYingKe/
 
 ## 更新 CV（PDF）
 
-CV 由網站資料自動產生（論文、研討會、野外觀測都會同步）：
+CV（英文版與中文版）由網站資料自動產生（論文、研討會、野外觀測都會同步）：
 
 ```bash
-python3 tools/make_cv.py      # 產生 tools/cv.html
-node tools/cv_to_pdf.js       # 產生 assets/cv/Chieh-Ying_Ke_CV.pdf（需要 Playwright）
+python3 tools/make_cv.py      # 產生 tools/cv.html、tools/cv_zh.html
+node tools/cv_to_pdf.js       # 產生 assets/cv/Chieh-Ying_Ke_CV.pdf、Chieh-Ying_Ke_CV_zh.pdf（需要 Playwright）
 ```
 
-個人資訊、學歷、研究興趣與技能寫在 `tools/make_cv.py` 上方。
+個人資訊、學歷、研究興趣與技能（中英各一份）寫在 `tools/make_cv.py` 的 `TEXT`。
