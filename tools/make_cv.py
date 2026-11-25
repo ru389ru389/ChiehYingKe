@@ -16,7 +16,7 @@ import re
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SHOW_PHOTO = True
+SHOW_PHOTO = False  # 需要照片版本時改為 True
 
 
 def load(name):
@@ -151,6 +151,9 @@ TEXT = {
             ('Methods', 'Ensemble sensitivity analysis, k-means clustering, unsupervised machine learning'),
             ('Languages', 'Mandarin (native), Taiwanese, English'),
         ],
+        # 之後補充：每筆 (年份, 內容)；空白時該段落不會出現
+        'invited': [], 'projects': [], 'teaching': [], 'review': [],
+        'h_extra': {'invited': 'Invited Talks', 'projects': 'Research Projects', 'teaching': 'Teaching', 'review': 'Professional Service — Journal Reviewer'},
         'sep': ', ', 'dash': ' — ',
     },
     'zh': {
@@ -200,6 +203,8 @@ TEXT = {
             ('分析方法', '系集敏感度分析（ESA）、k-means 分群、非監督式機器學習'),
             ('語言', '中文（母語）、台語、英文'),
         ],
+        'invited': [], 'projects': [], 'teaching': [], 'review': [],
+        'h_extra': {'invited': '受邀演講', 'projects': '研究計畫參與', 'teaching': '教學經驗', 'review': '學術服務：期刊審稿'},
         'sep': '，', 'dash': '｜',
     },
 }
@@ -275,6 +280,10 @@ def build(lang):
         for yr, en_, zh, n in GROUPED) + '</ol>'
     parts.append(section('field', H['field'], field))
 
+    for key in ['projects', 'invited', 'teaching', 'review']:
+        if T[key]:
+            parts.append(section('confs' if key == 'invited' else 'edu', T['h_extra'][key], '<ol class="list">' + ''.join(
+                f'<li><span class="yr">{e(str(a))}</span><div>{b}</div></li>' for a, b in T[key]) + '</ol>'))
     parts.append(section('journal', H['journal'] + f' <span class="note">{T["pub_note"]}</span>', pub_rows('journal', 'J')))
     parts.append(section('book', H['book'], pub_rows('book', 'B')))
     parts.append(section('preprint', H['preprint'], pub_rows('preprint', 'P')))
