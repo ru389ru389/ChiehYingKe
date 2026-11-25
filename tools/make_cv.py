@@ -59,8 +59,8 @@ INTERESTS = [
 EDUCATION = [
     ('2022 – present', 'Postdoctoral Research Fellow', 'Radar Laboratory, National Central University', 'Thermodynamic retrieval; radar data assimilation'),
     ('2022', 'Ph.D., Atmospheric Sciences', 'National Central University', 'Radar meteorology; radar data assimilation; EnKF'),
-    ('2012 – 2014', 'M.S., Atmospheric Sciences', 'National Central University', 'Radar meteorology; wind retrieval; case analysis'),
-    ('2008 – 2012', 'B.S., Atmospheric Sciences', 'National Central University', ''),
+    ('2014', 'M.S., Atmospheric Sciences', 'National Central University', 'Radar meteorology; wind retrieval; case analysis'),
+    ('2012', 'B.S., Atmospheric Sciences', 'National Central University', ''),
 ]
 
 SKILLS = [
