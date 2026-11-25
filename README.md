@@ -41,4 +41,4 @@ python3 tools/make_cv.py      # 產生 tools/cv.html、tools/cv_zh.html
 node tools/cv_to_pdf.js       # 產生 assets/cv/Chieh-Ying_Ke_CV.pdf、Chieh-Ying_Ke_CV_zh.pdf（需要 Playwright）
 ```
 
-個人資訊、學歷、研究興趣與技能（中英各一份）寫在 `tools/make_cv.py` 的 `TEXT`。
+個人資訊、學歷、研究興趣與技能（中英各一份）寫在 `tools/make_cv.py` 的 `TEXT`；論文數、研討會數、國家數等數字由資料自動計算。照片為 `tools/cv_photo.jpg`，投遞不收照片的單位時可把 `SHOW_PHOTO` 設為 `False`。
