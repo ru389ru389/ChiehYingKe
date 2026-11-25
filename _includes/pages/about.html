@@ -26,6 +26,15 @@
         未來也將投入氣候變遷研究，特別是北極氣候的動力過程。
       </p>
       {% endif %}
+      <div class="cv-buttons">
+        {% if lang == 'en' %}
+        <a class="btn cv-btn" href="{{ '/assets/cv/Chieh-Ying_Ke_CV.pdf' | relative_url }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download CV (English)</a>
+        <a class="btn cv-btn outline" href="{{ '/assets/cv/Chieh-Ying_Ke_CV_zh.pdf' | relative_url }}" target="_blank" rel="noopener" lang="zh-Hant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>CV in Chinese 中文</a>
+        {% else %}
+        <a class="btn cv-btn" href="{{ '/assets/cv/Chieh-Ying_Ke_CV_zh.pdf' | relative_url }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>下載中文履歷</a>
+        <a class="btn cv-btn outline" href="{{ '/assets/cv/Chieh-Ying_Ke_CV.pdf' | relative_url }}" target="_blank" rel="noopener" lang="en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>英文 CV（English）</a>
+        {% endif %}
+      </div>
     </div>
     <aside class="info-card">
       <dl>

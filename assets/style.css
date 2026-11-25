@@ -131,6 +131,12 @@ p { margin: 0 0 1em; }
 .btn.primary { background: var(--coral); color: #fff; }
 .btn.ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
 .btn.ghost:hover { background: rgba(255,255,255,.1); }
+.cv-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.cv-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: var(--on-accent); border: 1.5px solid var(--blue); padding: 9px 20px; }
+.cv-btn:hover { color: var(--on-accent); }
+.cv-btn.outline { background: transparent; color: var(--blue); }
+.cv-btn.outline:hover { background: color-mix(in srgb, var(--blue) 10%, transparent); color: var(--blue); }
+.cv-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .portrait { margin: 0; justify-self: center; width: 100%; max-width: 330px; }
 .portrait img {
